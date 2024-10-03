@@ -1,0 +1,40 @@
+site_name: Marlowe
+site_url: https://docs.marlowe.stanford.edu
+
+
+# Extras
+extra:
+  generator: false
+
+# Theme
+theme:
+  name: material
+  palette:
+    primary: deep orange
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+
+# Plugins
+plugins:
+  - search:
+      separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
+
+# Nav bar
+
+nav:
+  - Home:
+      - index.md
+      - Tech Specs: specs.md
+  
+  # Self Explanatory
+  - Getting Started:
+      - getting-started/index.md
+      - Allocations: getting-started/allocations.md
+      - Connecting: getting-started/connecting.md
+  
+  # Env Modules
+  - Software:
+      - modules/index.md
+      - Conda: modules/conda.md
+      - CuDNN: modules/cudnn.md
