@@ -7,7 +7,7 @@ Marlowe uses an optimized version of Conda called Mamba.
 To load Mamba, run the following after logging in:
 
 ```
-module load mamba
+module load conda
 ```
 
 Every conda command works with mamba. No code customization is needed.
