@@ -32,6 +32,7 @@ nav:
       - getting-started/index.md
       - Allocations: getting-started/allocations.md
       - Connecting: getting-started/connecting.md
+      - Filesystems: getting-started/filesystems.md
   
   # Env Modules
   - Software:
