@@ -37,5 +37,6 @@ nav:
   # Env Modules
   - Software:
       - modules/index.md
+      - Apptainer: modules/apptainer.md
       - Conda: modules/conda.md
       - CuDNN: modules/cudnn.md

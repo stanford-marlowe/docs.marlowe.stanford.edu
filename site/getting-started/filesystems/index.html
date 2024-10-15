@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://docs.marlowe.stanford.edu/getting-started/allocations/">
+        <link rel="canonical" href="https://docs.marlowe.stanford.edu/getting-started/filesystems/">
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../connecting/">
       
       
-        <link rel="next" href="../connecting/">
+        <link rel="next" href="../../modules/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Allocations - Marlowe</title>
+        <title>Filesystems - Marlowe</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#allocations" class="md-skip">
+        <a href="#user-filesystems" class="md-skip">
           Skip to content
         </a>
       
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Allocations
+              Filesystems
             
           </span>
         </div>
@@ -416,30 +416,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Allocations
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../allocations/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -448,35 +428,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#applying-for-an-allocation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Applying for an allocation
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -507,10 +458,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../filesystems/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Filesystems
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -519,6 +490,53 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#users" class="md-nav__link">
+    <span class="md-ellipsis">
+      /users/
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#projects" class="md-nav__link">
+    <span class="md-ellipsis">
+      /projects/
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scratch" class="md-nav__link">
+    <span class="md-ellipsis">
+      /scratch/
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -666,9 +684,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#applying-for-an-allocation" class="md-nav__link">
+  <a href="#users" class="md-nav__link">
     <span class="md-ellipsis">
-      Applying for an allocation
+      /users/
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#projects" class="md-nav__link">
+    <span class="md-ellipsis">
+      /projects/
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scratch" class="md-nav__link">
+    <span class="md-ellipsis">
+      /scratch/
     </span>
   </a>
   
@@ -689,10 +725,23 @@
                   
 
 
-<h1 id="allocations">Allocations</h1>
-<p>To get access to Marlowe, you will need to be approved an allocation by the Marlowe Governance Group.</p>
-<h2 id="applying-for-an-allocation">Applying for an allocation</h2>
-<p>More info will be available soon.</p>
+<h1 id="user-filesystems">User Filesystems</h1>
+<p>There are multiple filesystems available to end users on Marlowe.</p>
+<h2 id="users">/users/</h2>
+<p><code>/users/</code> is where a user's home directory lives. It is directly mapped to the <code>$HOME</code> variable, so whenever you run <code>cd ~</code> or <code>cd $HOME</code> you will be sent to <code>/users/&lt;Your-sunet-ID&gt;</code>.</p>
+<p>For example, if my sunetID was <code>bob</code>, then my home directory on Marlowe would be <code>/users/bob</code></p>
+<p>Each directory in <code>/users/</code> is unique to that user.</p>
+<p><strong>Important</strong>: Your home directory only has 15GB of storage available. For any large files or conda installs, we recommend using a different filesystem.</p>
+<h2 id="projects">/projects/</h2>
+<p><code>/projects/</code> is the filesystem where all allocation project directories live.</p>
+<p>When you are given an allocation, you are given a project ID. This project ID is also your directory in <code>/projects/</code></p>
+<p>For example: If your allocation's project ID was <code>m231631</code>, then your allocation's project folder would be <code>/projects/m231631/</code></p>
+<p>Directory quotas in <code>/projects/</code> vary depending on the amount approved in the allocation.</p>
+<p>Every user added to an allocation shares the same <code>/projects/</code> folder. So <code>bob</code> and <code>amy</code> in project <code>m231631</code> would both have files in <code>/projects/m231631/</code>, but <code>greg</code> in project <code>m402630</code> would have files in <code>/projects/m402630</code></p>
+<p><strong>Important</strong>: Directories in <code>/projects/</code> are mounted as needed, so your specific folder may not show up when you login initially. <code>cd</code> to your project directory and it will show up until you log out.</p>
+<h2 id="scratch">/scratch/</h2>
+<p><code>/scratch/</code> is the lustre filesystem meant (as the name implies) to be used as scratch storage.</p>
+<p>Much like in <code>/projects/</code>, your <code>/scratch/</code> folder corresponds to your project ID. <code>/scratch/m231631</code>,<code>/scratch/m402630</code>, etc.</p>
 
 
 

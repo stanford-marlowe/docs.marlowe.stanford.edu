@@ -2,34 +2,38 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://docs.marlowe.stanford.edu/</loc>
-         <lastmod>2024-10-04</lastmod>
+         <lastmod>2024-10-15</lastmod>
     </url>
     <url>
          <loc>https://docs.marlowe.stanford.edu/specs/</loc>
-         <lastmod>2024-10-04</lastmod>
+         <lastmod>2024-10-15</lastmod>
     </url>
     <url>
          <loc>https://docs.marlowe.stanford.edu/getting-started/</loc>
-         <lastmod>2024-10-04</lastmod>
+         <lastmod>2024-10-15</lastmod>
     </url>
     <url>
          <loc>https://docs.marlowe.stanford.edu/getting-started/allocations/</loc>
-         <lastmod>2024-10-04</lastmod>
+         <lastmod>2024-10-15</lastmod>
     </url>
     <url>
          <loc>https://docs.marlowe.stanford.edu/getting-started/connecting/</loc>
-         <lastmod>2024-10-04</lastmod>
+         <lastmod>2024-10-15</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.marlowe.stanford.edu/getting-started/filesystems/</loc>
+         <lastmod>2024-10-15</lastmod>
     </url>
     <url>
          <loc>https://docs.marlowe.stanford.edu/modules/</loc>
-         <lastmod>2024-10-04</lastmod>
+         <lastmod>2024-10-15</lastmod>
     </url>
     <url>
          <loc>https://docs.marlowe.stanford.edu/modules/conda/</loc>
-         <lastmod>2024-10-04</lastmod>
+         <lastmod>2024-10-15</lastmod>
     </url>
     <url>
          <loc>https://docs.marlowe.stanford.edu/modules/cudnn/</loc>
-         <lastmod>2024-10-04</lastmod>
+         <lastmod>2024-10-15</lastmod>
     </url>
 </urlset>
