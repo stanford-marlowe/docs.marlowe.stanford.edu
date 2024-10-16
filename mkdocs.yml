@@ -39,4 +39,7 @@ nav:
       - modules/index.md
       - Apptainer: modules/apptainer.md
       - Conda: modules/conda.md
+      - Conan: modules/conan.md
       - CuDNN: modules/cudnn.md
+  - FAQ:
+      - faq.md
