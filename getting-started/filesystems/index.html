@@ -878,6 +878,7 @@
 <p><code>/users/</code> is where a user's home directory lives. It is directly mapped to the <code>$HOME</code> variable, so whenever you run <code>cd ~</code> or <code>cd $HOME</code> you will be sent to <code>/users/&lt;Your-sunet-ID&gt;</code>.</p>
 <p>For example, if my sunetID was <code>bob</code>, then my home directory on Marlowe would be <code>/users/bob</code></p>
 <p>Each directory in <code>/users/</code> is unique to that user.</p>
+<p><code>/users/</code> is backed up once every 24 hours.</p>
 <p><strong>Important</strong>: Your home directory only has 15GB of storage available. For any large files or conda installs, we recommend using a different filesystem.</p>
 <h2 id="projects">/projects/</h2>
 <p><code>/projects/</code> is the filesystem where all allocation project directories live.</p>
@@ -885,10 +886,12 @@
 <p>For example: If your allocation's project ID was <code>m231631</code>, then your allocation's project folder would be <code>/projects/m231631/</code></p>
 <p>Directory quotas in <code>/projects/</code> vary depending on the amount approved in the allocation.</p>
 <p>Every user added to an allocation shares the same <code>/projects/</code> folder. So <code>bob</code> and <code>amy</code> in project <code>m231631</code> would both have files in <code>/projects/m231631/</code>, but <code>greg</code> in project <code>m402630</code> would have files in <code>/projects/m402630</code></p>
+<p><code>/projects/</code> is backed up once every 24 hours.</p>
 <p><strong>Important</strong>: Directories in <code>/projects/</code> are mounted as needed, so your specific folder may not show up when you login initially. <code>cd</code> to your project directory and it will show up until you log out.</p>
 <h2 id="scratch">/scratch/</h2>
 <p><code>/scratch/</code> is the lustre filesystem meant (as the name implies) to be used as scratch storage.</p>
 <p>Much like in <code>/projects/</code>, your <code>/scratch/</code> folder corresponds to your project ID. <code>/scratch/m231631</code>,<code>/scratch/m402630</code>, etc.</p>
+<p><code>/scratch/</code> is <em>not</em> backed up. Unlike <code>/users/</code> and <code>/projects/</code>, <code>/scratch/</code> is not replicated.</p>
 
 
 
