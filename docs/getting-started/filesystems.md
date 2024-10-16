@@ -10,6 +10,8 @@ For example, if my sunetID was `bob`, then my home directory on Marlowe would be
 
 Each directory in `/users/` is unique to that user.
 
+`/users/` is backed up once every 24 hours.
+
 **Important**: Your home directory only has 15GB of storage available. For any large files or conda installs, we recommend using a different filesystem.
 
 ## /projects/
@@ -24,6 +26,8 @@ Directory quotas in `/projects/` vary depending on the amount approved in the al
 
 Every user added to an allocation shares the same `/projects/` folder. So `bob` and `amy` in project `m231631` would both have files in `/projects/m231631/`, but `greg` in project `m402630` would have files in `/projects/m402630`
 
+`/projects/` is backed up once every 24 hours.
+
 **Important**: Directories in `/projects/` are mounted as needed, so your specific folder may not show up when you login initially. `cd` to your project directory and it will show up until you log out.
 
 ## /scratch/
@@ -31,3 +35,5 @@ Every user added to an allocation shares the same `/projects/` folder. So `bob` 
 `/scratch/` is the lustre filesystem meant (as the name implies) to be used as scratch storage.
 
 Much like in `/projects/`, your `/scratch/` folder corresponds to your project ID. `/scratch/m231631`,`/scratch/m402630`, etc.
+
+`/scratch/` is *not* backed up. Unlike `/users/` and `/projects/`, `/scratch/` is not replicated.
