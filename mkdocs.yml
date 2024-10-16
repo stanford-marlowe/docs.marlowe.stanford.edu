@@ -41,5 +41,6 @@ nav:
       - Conda: modules/conda.md
       - Conan: modules/conan.md
       - CuDNN: modules/cudnn.md
+      - Nvidia HPC SDK: modules/nvhpc.md
   - FAQ:
       - faq.md
