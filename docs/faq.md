@@ -8,3 +8,12 @@ Each [filesystem](./getting-started/filesystems.md) on Marlowe has a user space 
 
 Docker is not supported on Marlowe due to the security risks associated with it. Fortunately, [Apptainer](./modules/apptainer.md) supports running docker containers natively.
 
+### **I can't see my project directory**
+
+The `/projects/` filesystem uses a system called [autofs](https://www.kernel.org/doc/html/latest/filesystems/autofs.html) to dynamically mount NFS shares in `/projects/`.
+
+Due to this, you may not see your specific `/projects/` directory until you first access it after login. As soon as you run a command that accesses your project directory, it will show up and be accessible. A simple way to show your `/projects/` directory is to run `ls /projects/<project ID>`.
+
+Here is an example:
+
+![walkthrough](./assets/Untitled.gif)

@@ -30,6 +30,10 @@ Every user added to an allocation shares the same `/projects/` folder. So `bob` 
 
 **Important**: Directories in `/projects/` are mounted as needed, so your specific folder may not show up when you login initially. `cd` to your project directory and it will show up until you log out.
 
+Here is an example:
+
+![walkthrough](../assets/Untitled.gif)
+
 ## /scratch/
 
 `/scratch/` is the lustre filesystem meant (as the name implies) to be used as scratch storage.
