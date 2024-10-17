@@ -10,11 +10,12 @@ extra:
 theme:
   name: material
   palette:
-    primary: deep orange
+    primary: custom
   features:
     - navigation.tabs
     - navigation.tabs.sticky
-
+extra_css:
+  - assets/stylesheets/marlowe.css
 # Plugins
 plugins:
   - search:
