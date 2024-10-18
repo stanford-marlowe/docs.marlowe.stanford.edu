@@ -43,5 +43,9 @@ nav:
       - Conan: modules/conan.md
       - CuDNN: modules/cudnn.md
       - Nvidia HPC SDK: modules/nvhpc.md
+
+  - NGC NIMs:
+      - ngc_example.md
+      
   - FAQ:
       - faq.md
