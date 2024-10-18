@@ -231,6 +231,24 @@
     
     
       <li class="md-tabs__item">
+        <a href="../../ngc_example/" class="md-tabs__link">
+          
+  
+  NGC NIMs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
         <a href="../../faq/" class="md-tabs__link">
           
   
@@ -746,7 +764,7 @@
             
   
   <span class="md-ellipsis">
-    FAQ
+    NGC NIMs
   </span>
   
 
@@ -755,6 +773,72 @@
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            NGC NIMs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ngc_example/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using NVIDIA NIM Containers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             FAQ
           </label>
@@ -842,16 +926,16 @@
 <p>Conda is a python package manager used by a wide variety of projects.</p>
 <p>Marlowe uses an optimized version of Conda called Mamba.</p>
 <p>To load Mamba, run the following after logging in:</p>
-<pre><code>module load conda
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>module load conda
+</span></code></pre></div>
 <p>Every conda command works with mamba. No code customization is needed.</p>
 <h2 id="installing-a-conda-environment-in-a-different-location">Installing a Conda environment in a different location</h2>
 <p>Home directories have a quota of 15GB by default. This means that even small conda environments can run into quota issues rather quickly.</p>
 <p>To combat this, we recommend setting up your conda environment in a separate directory. You can do this with the <code>--prefix</code> command.</p>
-<p>For example:</p>
-<pre><code>conda create --prefix /projects/m223813/mycondadir numpy=1.21
-</code></pre>
-<p>The above will create a new conda environment in the <code>/projects/m223813/mycondadir</code> folder with numpy 1.21. Since it's not being installed into your home directory, you don't have to worry about the same 15GB quota as before!</p>
+<p>For example:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>conda create --prefix /projects/m223813/mycondadir numpy=1.21
+</span></code></pre></div>
+The above will create a new conda environment in the <code>/projects/m223813/mycondadir</code> folder with numpy 1.21. Since it's not being installed into your home directory, you don't have to worry about the same 15GB quota as before!</p>
 <p>You can also use the <code>--prefix</code> argument with <code>conda env</code> and other commands.</p>
 
 
