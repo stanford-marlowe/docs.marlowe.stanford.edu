@@ -6,6 +6,15 @@ site_url: https://docs.marlowe.stanford.edu
 extra:
   generator: false
 
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  
 # Theme
 theme:
   name: material
@@ -43,5 +52,9 @@ nav:
       - Conan: modules/conan.md
       - CuDNN: modules/cudnn.md
       - Nvidia HPC SDK: modules/nvhpc.md
+
+  - NGC NIMs:
+      - ngc_example.md
+      
   - FAQ:
       - faq.md
