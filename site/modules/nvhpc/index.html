@@ -867,11 +867,12 @@
 
 
 <h1 id="nvidia-hpc-sdk">Nvidia HPC SDK</h1>
-<p>The Nvidia HPC SDK provides tools such as <code>nvcc</code> to the end user.</p>
+<p>The Nvidia HPC SDK provides CUDA-related tools such as <code>nvcc</code> to the end user. It includes all HPC libraries except for cuDNN which is loaded as a <a href="../cudnn/">separate module</a>.</p>
 <p>Find out more <a href="https://developer.nvidia.com/hpc-sdk">here</a></p>
 <p>To load the Nvidia HPC SDK, run the following:
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>module load nvhpc
 </span></code></pre></div></p>
+<p>Due to NVPC overwriting the local CC and CXX variables, by default it is not loaded. This means you will have to load the nvhpc module whenever you want to use any CUDA tools.</p>
 
 
 

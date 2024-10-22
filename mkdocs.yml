@@ -51,6 +51,7 @@ nav:
       - Conda: modules/conda.md
       - Conan: modules/conan.md
       - CuDNN: modules/cudnn.md
+      - Cuda Toolkit: modules/cudatoolkit.md
       - Nvidia HPC SDK: modules/nvhpc.md
 
   - NGC NIMs:
