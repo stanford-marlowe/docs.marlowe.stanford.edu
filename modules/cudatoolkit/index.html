@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://docs.marlowe.stanford.edu/modules/nvhpc/">
+        <link rel="canonical" href="https://docs.marlowe.stanford.edu/modules/cudatoolkit/">
       
       
-        <link rel="prev" href="../cudatoolkit/">
+        <link rel="prev" href="../cudnn/">
       
       
-        <link rel="next" href="../../ngc_example/">
+        <link rel="next" href="../nvhpc/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Nvidia HPC SDK - Marlowe</title>
+        <title>Cuda Toolkit - Marlowe</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#nvidia-hpc-sdk" class="md-skip">
+        <a href="#cuda-toolkit" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Nvidia HPC SDK
+              Cuda Toolkit
             
           </span>
         </div>
@@ -667,27 +667,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../cudatoolkit/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Cuda Toolkit
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -704,12 +683,33 @@
         
   
   <span class="md-ellipsis">
-    Nvidia HPC SDK
+    Cuda Toolkit
   </span>
   
 
       </a>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nvhpc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Nvidia HPC SDK
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -887,13 +887,12 @@
                   
 
 
-<h1 id="nvidia-hpc-sdk">Nvidia HPC SDK</h1>
-<p>The Nvidia HPC SDK provides CUDA-related tools such as <code>nvcc</code> to the end user. It includes all HPC libraries except for cuDNN which is loaded as a <a href="../cudnn/">separate module</a>.</p>
-<p>Find out more <a href="https://developer.nvidia.com/hpc-sdk">here</a></p>
-<p>To load the Nvidia HPC SDK, run the following:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>module load nvhpc
-</span></code></pre></div></p>
-<p>Due to NVPC overwriting the local CC and CXX variables, by default it is not loaded. This means you will have to load the nvhpc module whenever you want to use any CUDA tools.</p>
+<h1 id="cuda-toolkit">Cuda Toolkit</h1>
+<p>This module does the exact same things as <a href="../nvhpc/">nvhpc</a> and nvhpc is the preferred method of using CUDA. The only difference is that the Cuda Toolkit module also sets the <code>CUDA_HOME</code> directory.</p>
+<p>The Cuda Toolkit module is only updated when <code>nvhpc</code> is updated.</p>
+<p>To load Cuda Toolkit, run the following:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>module load cudatoolkit
+</span></code></pre></div>
 
 
 
