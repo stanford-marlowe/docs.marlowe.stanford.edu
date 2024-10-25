@@ -28,7 +28,7 @@ Here are some Examples:
 #SBATCH --job-name=test
 #SBATCH -p beta
 #SBATCH --nodes=1
-#SBATCH -A m223813
+#SBATCH -A marlowe-m223813
 #SBATCH -G 8
 #SBATCH --time=00:30:00
 #SBATCH --error=/users/srcc/foo.err
