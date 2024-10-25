@@ -17,3 +17,7 @@ Due to this, you may not see your specific `/projects/` directory until you firs
 Here is an example:
 
 ![walkthrough](./assets/Untitled.gif)
+
+### Where are the CUDA tools?
+
+CUDA tools and libraries such as `nvcc` are available in the [nvhpc module](./modules/nvhpc.md). This module is not loaded by default, so it will need to be loaded whenever you use any CUDA tools and libraries. You can always automate this by adding `module load nvhpc` to your `~/.bashrc` file.

@@ -231,6 +231,24 @@
     
     
       <li class="md-tabs__item">
+        <a href="../../ngc_example/" class="md-tabs__link">
+          
+  
+  NGC NIMs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
         <a href="../../faq/" class="md-tabs__link">
           
   
@@ -764,7 +782,7 @@
             
   
   <span class="md-ellipsis">
-    FAQ
+    NGC NIMs
   </span>
   
 
@@ -773,6 +791,72 @@
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            NGC NIMs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ngc_example/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using NVIDIA NIM Containers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             FAQ
           </label>
@@ -890,6 +974,8 @@
 <p>Every user added to an allocation shares the same <code>/projects/</code> folder. So <code>bob</code> and <code>amy</code> in project <code>m231631</code> would both have files in <code>/projects/m231631/</code>, but <code>greg</code> in project <code>m402630</code> would have files in <code>/projects/m402630</code></p>
 <p><code>/projects/</code> is backed up once every 24 hours.</p>
 <p><strong>Important</strong>: Directories in <code>/projects/</code> are mounted as needed, so your specific folder may not show up when you login initially. <code>cd</code> to your project directory and it will show up until you log out.</p>
+<p>Here is an example:</p>
+<p><img alt="walkthrough" src="../../assets/Untitled.gif" /></p>
 <h2 id="scratch">/scratch/</h2>
 <p><code>/scratch/</code> is the lustre filesystem meant (as the name implies) to be used as scratch storage.</p>
 <p>Much like in <code>/projects/</code>, your <code>/scratch/</code> folder corresponds to your project ID. <code>/scratch/m231631</code>,<code>/scratch/m402630</code>, etc.</p>

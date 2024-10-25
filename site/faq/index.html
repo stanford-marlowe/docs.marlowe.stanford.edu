@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://docs.marlowe.stanford.edu/faq/">
       
       
-        <link rel="prev" href="../modules/nvhpc/">
+        <link rel="prev" href="../ngc_example/">
       
       
       
@@ -213,6 +213,24 @@
           
   
   Software
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../ngc_example/" class="md-tabs__link">
+          
+  
+  NGC NIMs
 
         </a>
       </li>
@@ -670,6 +688,72 @@
       
   
   
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    NGC NIMs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            NGC NIMs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ngc_example/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using NVIDIA NIM Containers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -688,10 +772,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -702,8 +786,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_4">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             FAQ
           </label>
@@ -779,6 +863,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#i-cant-see-my-project-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      I can't see my project directory
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-are-the-cuda-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Where are the CUDA tools?
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -839,6 +941,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#i-cant-see-my-project-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      I can't see my project directory
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-are-the-cuda-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      Where are the CUDA tools?
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -859,6 +979,13 @@
 <p>Each <a href="../getting-started/filesystems/">filesystem</a> on Marlowe has a user space quota. You're most likely to run into this issue when adding files to your home directory.</p>
 <h3 id="i-cant-run-a-docker-container"><strong>I can't run a docker container</strong></h3>
 <p>Docker is not supported on Marlowe due to the security risks associated with it. Fortunately, <a href="../modules/apptainer/">Apptainer</a> supports running docker containers natively.</p>
+<h3 id="i-cant-see-my-project-directory"><strong>I can't see my project directory</strong></h3>
+<p>The <code>/projects/</code> filesystem uses a system called <a href="https://www.kernel.org/doc/html/latest/filesystems/autofs.html">autofs</a> to dynamically mount NFS shares in <code>/projects/</code>.</p>
+<p>Due to this, you may not see your specific <code>/projects/</code> directory until you first access it after login. As soon as you run a command that accesses your project directory, it will show up and be accessible. A simple way to show your <code>/projects/</code> directory is to run <code>ls /projects/&lt;project ID&gt;</code>.</p>
+<p>Here is an example:</p>
+<p><img alt="walkthrough" src="../assets/Untitled.gif" /></p>
+<h3 id="where-are-the-cuda-tools">Where are the CUDA tools?</h3>
+<p>CUDA tools and libraries such as <code>nvcc</code> are available in the <a href="../modules/nvhpc/">nvhpc module</a>. This module is not loaded by default, so it will need to be loaded whenever you use any CUDA tools and libraries. You can always automate this by adding <code>module load nvhpc</code> to your <code>~/.bashrc</code> file.</p>
 
 
 
