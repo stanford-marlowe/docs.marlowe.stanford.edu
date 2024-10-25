@@ -44,6 +44,10 @@ nav:
       - Connecting: getting-started/connecting.md
       - Filesystems: getting-started/filesystems.md
   
+  - SLURM on Marlowe:
+      - slurm/jobs.md
+      - Accounts: slurm/accounts.md
+
   # Env Modules
   - Software:
       - modules/index.md
