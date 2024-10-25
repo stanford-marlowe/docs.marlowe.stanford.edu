@@ -110,7 +110,7 @@ p+h2 {
 
 pre,
 pre.highlight {
-  padding: 6px;
+  padding: 1em;
   background-color: #f4f4f4;
   margin: 12px 0
 }
@@ -395,10 +395,6 @@ div.fancy-copy.copied {
   flex-grow: 9
 }
 
-.tip-btn {
-  padding-top: .2em
-}
-
 a.btn {
   text-decoration: none
 }
@@ -415,7 +411,7 @@ a.btn {
 
 .alert.note {
   color: #2e2d29;
-  background-color: #f4f4f4
+  background-color: #f4f4f4;
 }
 
 .su-card .su-card__contents>.h2 {
@@ -429,4 +425,12 @@ a.btn {
 .su-link,
 a {
   color: #00538f
+}
+
+.form-group .replace{
+  background-color: #f4f4f4
+}
+
+.form-group .replace p{
+margin:4px 1em;
 }

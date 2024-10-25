@@ -1,20 +1,23 @@
 $(document).ready(function() {
   generateTips();
+  var savedprojectId = checkSession('projectId');
   $(document).on('click', '#generateBtn', function() {
     generateTips();
   });
+  $(document).on('click', '#clearBtn', function() {
+    var oldProjectIdMatch = checkSession('projectId');
+    saveToSession('projectId', '');
+    autoFillSession('#projectId', '');
+    generateTips(oldProjectIdMatch);
+  });
+
   $(document).on('click', '.copy,.fa-clipboard', function(e) {
     generateTips();
     copyButton(e);
   });
 
-  var savedProjectName = checkSession('projectName');
-  if (savedProjectName) {
-    autoFillSession('#projectName', savedProjectName);
-  }
-  var savedVM = checkSession('vmName');
-  if (savedVM) {
-    autoFillSession('#vmName', savedVM);
+  if (savedprojectId) {
+    autoFillSession('#projectId', savedprojectId);
   }
 
   async function copyTextToClipboard(text) {
@@ -31,44 +34,36 @@ $(document).ready(function() {
     return elem.classList.contains(className);
   }
 
-  function generateTips() {
+  function generateTips(oldProjectIdMatch) {
     //set up default values
-    var vmName = $('#vmName').val();
-    if (!vmName) {
-      vmName = '[VM Name]';
+    var projectId = $('#projectId').val();
+    var matchText = "[Project ID]"
+    if (!projectId) {
+      projectId = matchText;
     } else {
-      saveToSession('vmName', vmName);
+      saveToSession('projectId', projectId);
     }
-    var projectName = $('#projectName').val();
-    if (!projectName) {
-      projectName = '[Project Name]';
-    } else {
-      saveToSession('projectName', projectName);
+    var srun = $('#srun code');
+    var salloc = $('#salloc code');
+    var sbatch = $('#sbatch code');
+    if (oldProjectIdMatch) {
+      matchText = oldProjectIdMatch;
     }
-    var powerVM = $('#powerVM');
-    if (vmName) {
-      powerVM.empty();
-      var powerVMCommand = "gcloud compute instances start " + vmName + " --project " + projectName;
-      powerVM.val(powerVMCommand);
-    }
-    var powerUrl = $('#powerUrl');
-    powerUrl.empty();
-    var powerUrlCommand = "https://console.cloud.google.com/compute/instances?project=" + projectName;
-    powerUrl.val(powerUrlCommand);
-    if (projectName != '[Project Name]') {
-      $('#powerUrlLink').html('<a href="' + powerUrlCommand + '" target="_new">' + powerUrlCommand + '</a>')
+    var cleanText = srun.html();
+    const newStr = cleanText.replace(matchText, projectId);
+    srun.html(newStr);
+
+    if (projectId) {
+      var cleanText = salloc.html();
+      const newStr = cleanText.replace(matchText, projectId);
+      salloc.html(newStr);
     }
 
-    var turnItOff = $('#turnItOff');
-    turnItOff.empty();
-    var turnItOffCommand = "gcloud compute instances stop " + vmName + " --project " + projectName;
-    turnItOff.val(turnItOffCommand);
-
-    var connect = $('#connect');
-    connect.empty();
-    var connectCommand = "gcloud compute ssh --zone=us-west1-a " + vmName + " --project " + projectName + " -- -L 8080:localhost:8080";
-    connect.val(connectCommand);
-
+    if (projectId) {
+      var cleanText = sbatch.html();
+      const newStr = cleanText.replace(matchText, projectId);
+      sbatch.html(newStr);
+    }
   }
 
   //gets data-target attribute of button and copies contents of that element
@@ -77,8 +72,11 @@ $(document).ready(function() {
     node = node.closest('.btn.copy');
     $(node).addClass("copy-target");
     var targetText = node.dataset.target;
+    var targetMethod = node.dataset.method;
     var textToCopy = $("#" + targetText);
-    var text = textToCopy.val();
+    var text = "";
+    text = textToCopy.text();
+    //console.log('text', text);
     copyTextToClipboard(text);
   }
 
