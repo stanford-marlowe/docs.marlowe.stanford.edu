@@ -1,4 +1,8 @@
-# Conda
+---
+title: "Conda"
+permalink: /software/conda.html
+folder: software
+---
 
 Conda is a python package manager used by a wide variety of projects.
 

@@ -1,4 +1,10 @@
-# Apptainer
+---
+title: "Apptainer"
+permalink: /software/apptainer.html
+folder: software
+---
+
+
 
 Apptainer (formerly known as Singularity) is an HPC-oriented container system. 
 

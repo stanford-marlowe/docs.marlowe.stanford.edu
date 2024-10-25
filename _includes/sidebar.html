@@ -1,0 +1,13 @@
+
+{% if page.toc == true %}
+{% include sidebar-toc.html %}
+{% endif %}
+
+{% if page.seealso != false %}
+{% include sidebar-see-also.html %}
+{% endif %}
+
+{% if page.home != true %}
+{% include sidebar-box.html title="Support is Available" content="<ul><li><a href='/help-and-support.html'>Ask Us Anything</a></li></ul>" %}
+{% endif %}
+

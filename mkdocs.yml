@@ -1,61 +1,60 @@
-site_name: Marlowe
-site_url: https://docs.marlowe.stanford.edu
+# site_name: Marlowe
+# site_url: https://docs.marlowe.stanford.edu
 
 
-# Extras
-extra:
-  generator: false
+# # Extras
+# extra:
+#   generator: false
 
-markdown_extensions:
-  - pymdownx.highlight:
-      anchor_linenums: true
-      line_spans: __span
-      pygments_lang_class: true
-  - pymdownx.inlinehilite
-  - pymdownx.snippets
-  - pymdownx.superfences
+# markdown_extensions:
+#   - pymdownx.highlight:
+#       anchor_linenums: true
+#       line_spans: __span
+#       pygments_lang_class: true
+#   - pymdownx.inlinehilite
+#   - pymdownx.snippets
+#   - pymdownx.superfences
   
-# Theme
-theme:
-  name: material
-  palette:
-    primary: custom
-  features:
-    - navigation.tabs
-    - navigation.tabs.sticky
-extra_css:
-  - assets/stylesheets/marlowe.css
-# Plugins
-plugins:
-  - search:
-      separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
+# # Theme
+# theme:
+#   name: material
+#   palette:
+#     primary: custom
+#   features:
+#     - navigation.tabs
+#     - navigation.tabs.sticky
+# extra_css:
+#   - assets/stylesheets/marlowe.css
+# # Plugins
+# plugins:
+#   - search:
+#       separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
 
-# Nav bar
+# # Nav bar
 
-nav:
-  - Home:
-      - index.md
-      - Tech Specs: specs.md
+# nav:
+#   - Home:
+#       - index.md
+#       - Tech Specs: specs.md
   
-  # Self Explanatory
-  - Getting Started:
-      - getting-started/index.md
-      - Allocations: getting-started/allocations.md
-      - Connecting: getting-started/connecting.md
-      - Filesystems: getting-started/filesystems.md
+#   # Self Explanatory
+#   - Getting Started:
+#       - getting-started/index.md
+#       - Allocations: getting-started/allocations.md
+#       - Connecting: getting-started/connecting.md
+#       - Filesystems: getting-started/filesystems.md
   
-  # Env Modules
-  - Software:
-      - modules/index.md
-      - Apptainer: modules/apptainer.md
-      - Conda: modules/conda.md
-      - Conan: modules/conan.md
-      - CuDNN: modules/cudnn.md
-      - Cuda Toolkit: modules/cudatoolkit.md
-      - Nvidia HPC SDK: modules/nvhpc.md
+#   # Env Modules
+#   - Software:
+#       - modules/index.md
+#       - Apptainer: modules/apptainer.md
+#       - Conda: modules/conda.md
+#       - Conan: modules/conan.md
+#       - CuDNN: modules/cudnn.md
+#       - Nvidia HPC SDK: modules/nvhpc.md
 
-  - NGC NIMs:
-      - ngc_example.md
+#   - NGC NIMs:
+#       - ngc_example.md
       
-  - FAQ:
-      - faq.md
+#   - FAQ:
+#       - faq.md

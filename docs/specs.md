@@ -1,4 +1,9 @@
-# Tech Specs
+---
+title: "Marlowe Tech Specs"
+toc: false
+permalink: specs.html
+seealso: false
+---
 
 Marlowe consists of a DGX H100 Superpod.
 

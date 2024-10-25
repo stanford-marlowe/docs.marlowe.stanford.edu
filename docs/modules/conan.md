@@ -1,4 +1,8 @@
-# Conan
+---
+title: "Conan"
+permalink: /software/conan.html
+folder: software
+---
 
 Conan is a C/C++ package manager.
 
