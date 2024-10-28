@@ -2,6 +2,7 @@
 title: "Nvidia HPC SDK"
 permalink: /software/nvhpc.html
 folder: software
+toc: false
 ---
 
 The Nvidia HPC SDK provides CUDA-related tools such as `nvcc` to the end user. It includes all HPC libraries except for cuDNN which is loaded as a [separate module](./cudnn.md).

@@ -2,6 +2,7 @@
 title: "Apptainer"
 permalink: /software/apptainer.html
 folder: software
+toc: false
 ---
 
 

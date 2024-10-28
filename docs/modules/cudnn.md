@@ -2,6 +2,7 @@
 title: "CuDNN"
 permalink: /software/cudnn.html
 folder: software
+toc: false
 ---
 
 CuDNN is a library provided by Nvidia. More information on it can be found here: [https://developer.nvidia.com/cudnn](https://developer.nvidia.com/cudnn)

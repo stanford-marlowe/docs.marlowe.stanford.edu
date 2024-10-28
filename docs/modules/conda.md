@@ -2,6 +2,7 @@
 title: "Conda"
 permalink: /software/conda.html
 folder: software
+toc: false
 ---
 
 Conda is a python package manager used by a wide variety of projects.

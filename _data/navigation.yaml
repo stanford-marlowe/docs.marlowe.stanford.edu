@@ -34,6 +34,8 @@
       url: "/software/conan.html"
     - title: "CuDNN"
       url: "/software/cudnn.html"
+    - title: "Cuda Toolkit"
+      url: "/software/cudatoolkit.html"
     - title: "Nvidia HPC SDK"
       url: "/software/nvhpc.html"
 
