@@ -15,7 +15,7 @@
       {% if folderitem.external_url %}
       <a class="exlink" href="{{folderitem.external_url}}" target="_blank">{{folderitem.title}}</a>
       {% else %}
-      <a class="link" href="{{folderitem.url}}">{{folderitem.title}}</a>
+      <a class="link" href="{{folderitem.url | relative_url}}">{{folderitem.title}}</a>
       {% endif %}
     </li>
     {% endfor %}

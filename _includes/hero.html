@@ -2,6 +2,7 @@
   <div class="su-hero__media">
     <img src="{{ page.hero-image | relative_url}}" alt="{{ page.hero-alt }}" />
   </div>
+  {% if page.hero-headline %}
   <div class="su-card su-hero__card">
     <div class="su-card__contents">
       <p class="h2">{{ page.hero-headline }}</p>
@@ -12,4 +13,5 @@
       {% endif %}
     </div>
   </div>
+  {% endif %}
 </aside>
