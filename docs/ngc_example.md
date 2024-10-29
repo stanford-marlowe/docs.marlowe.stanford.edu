@@ -16,7 +16,7 @@ We will assume you have set up your Apptainer cache directory as noted [here](ht
 
 2. On your local machine, install [Docker Desktop](https://www.docker.com/) if you haven't already done so and ensure it is running.
 
-3. Get an API KEY for logging into NVIDIA GPU Cloud (NGC). For our example, you can obtain one by clicking on the the[Get API Key](https://build.nvidia.com/meta/llama-3_1-8b-instruct?snippet_tab=Python) at the top of the python code.
+3. Get an API KEY for logging into NVIDIA GPU Cloud (NGC). For our example, you can obtain one by clicking on the the [Get API Key](https://build.nvidia.com/meta/llama-3_1-8b-instruct?snippet_tab=Python) at the top of the python code.
 
 4. In a terminal on  your local machine (`bluebird`), log into the NGC via:
 
@@ -31,10 +31,10 @@ We will assume you have set up your Apptainer cache directory as noted [here](ht
     bluebird$ docker save nvcr.io/nim/meta/llama-3.1-8b-instruct:latest -o llama.tar
     ```
 
-6. Upload to Marlowe project directory (assuming `m223813` is your project directory).
+6. Upload to Marlowe project directory (assuming `m223813` is your project directory). 
 
     ```bash
-    bluebird$ scp llama.tar login.marlowe.stanford.edu:/scratch/m223813
+    bluebird$ scp llama.tar <SUnetID>@login.marlowe.stanford.edu:/scratch/m223813
     ```
 
 7. Log in to Marlowe and convert the image to a `.sif` file. This takes a while to complete and is done once. 
@@ -73,7 +73,7 @@ We will assume you have set up your Apptainer cache directory as noted [here](ht
     INFO 2024-10-17 18:27:10.522 httptools_impl.py:481] 127.0.0.1:37712 - "POST /v1/chat/completions HTTP/1.1" 200
     ```
    
-9. Typically, one would forward the port using `ssh` to access the service on `localhost:8000` or similar, but that is not feasible in an HPC environment. At some point [OnDemand applications](https://www.osc.edu/resources/online_portals/ondemand) may be set up, but until then, one can do batch processing by creating another session on the job node `n01` (log into Marlowe, and then `ssh n01`) to hit the API service. 
+9. Typically, one would forward the port using `ssh` to access the service on `localhost:8000` or similar, but that is not feasible in an HPC environment. One can do batch processing by creating another session on the job node `n01` (log into Marlowe, and then `ssh n01`) to hit the API service. 
 
 Below is the result of a  test API call using `curl` on `n01` where we ask for a limerick about Marlowe:
 
