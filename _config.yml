@@ -15,8 +15,9 @@ site_title: Marlowe User Documentation
 
 #PROD SETTINGS
 #domain: docs.marlowe.stanford.edu
-#url: https://docs.marlowe.stanford.edu
+url: https://docs.marlowe.stanford.edu
 #baseurl: /
+
 owner:
   # The owner name must be provided.
   name: "Stanford Research Computing"
