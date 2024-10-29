@@ -1,0 +1,12 @@
+
+{% if page.toc == true %}
+{% include sidebar-toc.html %}
+{% endif %}
+
+{% if page.seealso != false %}
+{% include sidebar-see-also.html %}
+{% endif %}
+
+{% if page.home != true %}
+{% include sidebar-support.html %}
+{% endif %}

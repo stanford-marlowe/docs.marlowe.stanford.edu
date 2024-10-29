@@ -1,4 +1,9 @@
-# Using NVIDIA NIM Containers
+---
+title: "Using NVIDIA NIM Containers"
+toc: false
+permalink: /ngc_example.html
+---
+
 
 We illustrate using [this
 Llama 3.1 (8B) model](https://build.nvidia.com/meta/llama-3_1-8b-instruct?snippet_tab=Docker). 

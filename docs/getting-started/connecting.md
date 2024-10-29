@@ -1,5 +1,9 @@
-# Connecting
-
+---
+title: "Connecting to Marlowe"
+toc: false
+permalink: /getting-started/connecting.html
+folder: getting-started
+---
 After your project has been approved, connecting is simple!
 
 ## SSH

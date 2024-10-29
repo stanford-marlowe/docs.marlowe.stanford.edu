@@ -1,4 +1,9 @@
-# User Filesystems
+---
+title: "Marlowe User Filesystems"
+permalink: /getting-started/filesystems.html
+folder: getting-started
+---
+
 
 There are multiple filesystems available to end users on Marlowe.
 
@@ -12,7 +17,8 @@ Each directory in `/users/` is unique to that user.
 
 `/users/` is backed up once every 24 hours.
 
-**Important**: Your home directory only has 15GB of storage available. For any large files or conda installs, we recommend using a different filesystem.
+{% include important.html content="Your home directory only has 15GB of storage available. For any large files or conda installs, we recommend using a different filesystem." %}
+
 
 ## /projects/
 
@@ -28,11 +34,12 @@ Every user added to an allocation shares the same `/projects/` folder. So `bob` 
 
 `/projects/` is backed up once every 24 hours.
 
-**Important**: Directories in `/projects/` are mounted as needed, so your specific folder may not show up when you login initially. `cd` to your project directory and it will show up until you log out.
+{% include important.html content="Directories in `/projects/` are mounted as needed, so your specific folder may not show up when you login initially. `cd` to your project directory and it will show up until you log out." %}
+
 
 Here is an example:
 
-![walkthrough](../assets/Untitled.gif)
+{% include image.html file="/assets/images/filesystems.gif" alt = "walkthrough of finding projects directory" %}
 
 ## /scratch/
 
