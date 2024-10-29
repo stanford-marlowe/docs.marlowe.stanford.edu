@@ -9,10 +9,14 @@ site_title: Marlowe User Documentation
 # this appears in the html browser tab for the site title (seen mostly by search engines, not users)
 
 #THIS IS JUST FOR DEV PREVIEW
-domain: saracook.github.io       # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
-url: https://saracook.github.io/  # the base hostname and protocol for your site, e.g. http://example.com
-baseurl: /docs.marlowe.stanford.edu/      # place folder name if the site is served in a subfolder
+#domain: saracook.github.io       # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
+#url: https://saracook.github.io/  # the base hostname and protocol for your site, e.g. http://example.com
+#baseurl: /docs.marlowe.stanford.edu/      # place folder name if the site is served in a subfolder
 
+#PROD SETTINGS
+domain: docs.marlowe.stanford.edu
+url: https://docs.marlowe.stanford.edu
+baseurl: /
 owner:
   # The owner name must be provided.
   name: "Stanford Research Computing"
