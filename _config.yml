@@ -67,4 +67,4 @@ safe: true
 lockup_line1: Marlowe Computing Platform
 lockup_link: /index.html
 #lockup_line1: Research Computing
-lockup_modifier_class: su-lockup--option-l
+lockup_modifier_class: su-lockup--option-n
