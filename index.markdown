@@ -13,7 +13,7 @@ hero-alt: "image of part of the superpod"
 ---
 
 
-Marlowe is Stanford's most powerful High Performance Computing (HPC) Cluster. It came online in October 2024 and is managed by Stanford Research Computing.
+Marlowe is Stanford's newest High Performance Computing (HPC) Cluster. It came online in October 2024 and is managed by Stanford Research Computing.
 
 Marlowe, named for Raymond Chandler's beloved fictional detective, is among the top 100 most powerful computing clusters on the planet. It is available to Stanford researchers across many disciplines. 
 
