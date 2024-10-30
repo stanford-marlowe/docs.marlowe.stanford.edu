@@ -8,9 +8,9 @@ permalink: /ngc_example.html
 We illustrate using [this
 Llama 3.1 (8B) model](https://build.nvidia.com/meta/llama-3_1-8b-instruct?snippet_tab=Docker). 
 
-NVIDIA provides Docker images for the running the model locally but Docker is ill-suited to a server infrastructure. Marlowe uses [Apptainer](http://docs.marlowe.stanford.edu/modules/apptainer/) instead and so one needs to convert the provided Docker image into an Apptainer image. Also, since the image is hosted on the [NVIDIA Developer Site](https://build.nvidia.com/explore/discover) that requires one to authenticate,  one has to use a Docker tools on one's local machine to download the image, and then upload it to Marlowe for conversion for use with Apptainer. 
+NVIDIA provides Docker images for the running the model locally but Docker is ill-suited to a server infrastructure. Marlowe uses [Apptainer](http://docs.marlowe.stanford.edu/software/apptainer/) instead and so one needs to convert the provided Docker image into an Apptainer image. Also, since the image is hosted on the [NVIDIA Developer Site](https://build.nvidia.com/explore/discover) that requires one to authenticate,  one has to use a Docker tools on one's local machine to download the image, and then upload it to Marlowe for conversion for use with Apptainer. 
 
-We will assume you have set up your Apptainer cache directory as noted [here](http://docs.marlowe.stanford.edu/modules/apptainer/).
+We will assume you have set up your Apptainer cache directory as noted [here](http://docs.marlowe.stanford.edu/software/apptainer/).
 
 1. Create an NVIDIA Developer account if you haven't already done so.
 
