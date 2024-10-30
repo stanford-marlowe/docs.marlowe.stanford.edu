@@ -28,3 +28,26 @@ Here is an example:
 
 {% include image.html file="/assets/images/filesystems.gif" alt = "walkthrough of finding projects directory" %}
 
+### I see "A requested component was not found" when submitting an MPI job.
+
+You may see a similar error to the following when your code either doesn't detect the infiniband fabric properly, or gets confused when it detects both Ethernet and Infiniband.:
+
+```
+--------------------------------------------------------------------------
+A requested component was not found, or was unable to be opened.  This
+means that this component is either not installed or is unable to be
+used on your system (e.g., sometimes this means that shared libraries
+that the component requires are unable to be found/loaded).  Note that
+Open MPI stopped checking at the first component that it did not find.
+
+Host:      n12
+Framework: pml
+Component: ucx
+--------------------------------------------------------------------------
+```
+
+To fix this, load the `gcc/64` module by running the following/adding to your slurm command:
+
+```
+module load gcc/64
+```
