@@ -6,9 +6,8 @@ seealso: true
 folder: faq
 ---
 
-Marlowe consists of a DGX H100 Superpod.
-
-The Superpod is built out of 31 DGX H100 nodes.
+Marlowe consists of a 1SU (Scalable Unit) NVIDIA DGX H100 SuperPOD.
+One H100 Scalable Unit is 31 NVIDIA DGX H100 servers
 
 ## DGX H100 Specs
 
@@ -26,4 +25,4 @@ Marlowe consists of four main networks:
 - 400Gb Infiniband compute network to connect all compute nodes together
 - 400Gb Infiniband storage network to connect all compute nodes to the DDN Exascaler scratch storage
 - 100Gb Ethernet network to connect to DDN Intelliflash storage (used for home and project directories)
-- 100Gb Ethernet network to connect to the outside world
+- 100Gb Ethernet network to connect to the campus network (SUNet) and the outside world

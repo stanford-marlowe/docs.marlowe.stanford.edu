@@ -434,3 +434,9 @@ a {
 .form-group .replace p{
 margin:4px 1em;
 }
+
+.su-local-footer__action-links a.su-link--external:after {
+    -webkit-mask: url(../assets/arrow-up-right.svg)no-repeat 0 0;
+    mask: url(../assets/arrow-up-right.svg)no-repeat 0 0;
+    mask-size: .7em .7em;
+}
