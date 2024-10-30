@@ -24,4 +24,4 @@ If you absolutely need a stock cuda toolkit install, you can load the following 
 module load stockcuda/12.6.2
 ```
 
-Since it is a stock cuda install, some HPC libraries are missing, so it is highly recommended to use [nvhpc](./nvhpc.md) instead. It is also only sporadically updated.
+Since it is a stock cuda install, some HPC libraries are missing. Due to this, it is highly recommended to use [nvhpc](./nvhpc.md) instead. The stock cuda toolkit module is also only sporadically updated.

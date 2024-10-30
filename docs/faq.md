@@ -30,7 +30,7 @@ Here is an example:
 
 ### I see "A requested component was not found" when submitting an MPI job.
 
-You may see a similar error to the following when your code either doesn't detect the infiniband fabric properly, or gets confused when it detects both Ethernet and Infiniband.:
+You may see a similar error to the following when your code either doesn't detect the infiniband fabric properly, or gets confused when it detects both Ethernet and Infiniband:
 
 ```
 --------------------------------------------------------------------------
@@ -51,3 +51,5 @@ To fix this, load the `gcc/64` module by running the following/adding to your sl
 ```
 module load gcc/64
 ```
+
+The `gcc/64` module essentially reloads the network fabric libraries and forces them to be loaded in the correct order. It is recommended to load it after [NVHPC](./modules/nvhpc.md).
