@@ -21,10 +21,13 @@ Every conda command works with mamba. No code customization is needed.
 
 Conda works for the most part straight out of the box, but if you need to `pip install` packages, you will need to follow these steps:
 
-1) Run `module load conda`
-2) Run `mamba init`
-3) Log out of Marlowe
-4) Log back in to Marlowe
+**1**) Run `module load conda`
+
+**2**) Run `mamba init`
+
+**3**) Log out of Marlowe
+
+**4**) Log back in to Marlowe
 
 After you've done this, mamba will be added to your path and `pip install` will function properly.
 
