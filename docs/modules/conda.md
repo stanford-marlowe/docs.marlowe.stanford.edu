@@ -17,6 +17,17 @@ module load conda
 
 Every conda command works with mamba. No code customization is needed.
 
+## Setting up Conda and pip
+
+Conda works for the most part straight out of the box, but if you need to `pip install` packages, you will need to follow these steps:
+
+1) Run `module load conda`
+2) Run `mamba init`
+3) Log out of Marlowe
+4) Log back in to Marlowe
+
+After you've done this, mamba will be added to your path and `pip install` will function properly.
+
 ## Installing a Conda environment in a different location
 
 Home directories have a quota of 15GB by default. This means that even small conda environments can run into quota issues rather quickly.
