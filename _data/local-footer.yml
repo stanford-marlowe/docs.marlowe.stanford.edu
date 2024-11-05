@@ -14,9 +14,9 @@ section2:
 section3:
     head: Resources
     links:
-    - title: Stanford Data Science LinkedIn
+    - title: SDS LinkedIn
       external_url: https://www.linkedin.com/company/stanford-data-science
-    - title: Stanford Data Science YouTube
-      external_url: https://www.linkedin.com/company/stanford-data-science
+    - title: SDS YouTube
+      external_url: https://www.youtube.com/c/StanfordDataScience
     - title: SRCC Twitter
       external_url: https://twitter.com/StanfordCompute
