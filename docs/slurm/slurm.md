@@ -94,7 +94,7 @@ module load slurm
 module load cudatoolkit
 module load cudnn/cuda12/9.3.0.75
 
-bash /users/srcc/test.sh
+bash ~/test.sh
 ```
 
 </div>
