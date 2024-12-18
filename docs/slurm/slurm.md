@@ -88,7 +88,7 @@ Here are some Examples:
 #SBATCH -A marlowe-[Project ID]
 #SBATCH -G 8
 #SBATCH --time=00:30:00
-#SBATCH --error=/users/srcc/foo.err
+#SBATCH --error=~/foo.err
 
 module load slurm
 module load cudatoolkit
