@@ -7,10 +7,8 @@ folder: getting-started
 
 Marlowe is currently in Beta with a small group of invited users.
 
-# Allocations
+Stanford researchers can apply for access and project-based allocations. 
 
-To get access to Marlowe, you will need to be approved an allocation by the Marlowe Governance Group.
+Applications will be reviewed by the Stanford Data Science team, and, for large projects, by a faculty committee.  
 
-## Applying for an allocation
-
-More info will be available soon.
+See the [Stanford Data Science Marlowe page](https://datascience.stanford.edu/marlowe) for more details and to sign up for notifications.
