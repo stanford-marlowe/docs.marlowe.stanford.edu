@@ -32,7 +32,7 @@ Directory quotas in `/projects/` vary depending on the amount approved in the al
 
 Every user added to an allocation shares the same `/projects/` folder. So `bob` and `amy` in project `m231631` would both have files in `/projects/m231631/`, but `greg` in project `m402630` would have files in `/projects/m402630`
 
-`/projects/` is backed up once every 24 hours.
+`/projects/` is backed up once every 24 hours at 9:15pm.
 
 {% include important.html content="Directories in `/projects/` are mounted as needed, so your specific folder may not show up when you login initially. `cd` to your project directory and it will show up until you log out." %}
 

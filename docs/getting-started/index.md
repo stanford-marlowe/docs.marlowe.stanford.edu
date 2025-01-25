@@ -1,5 +1,9 @@
 # Getting Access
 
-Once it's in production, Marlowe will require a review process to get access. The process to apply for an allocation on Marlowe is currently under development,  and will be published soon.
+Marlowe is currently in Production!
 
-Once that allocation is approved, a project will be created for you and you will be able to log in.
+Stanford researchers can apply for access and project-based allocations. 
+
+Applications will be reviewed by the Stanford Data Science team, and, for large projects, by a faculty committee.  
+
+See the [Stanford Data Science Marlowe page](https://datascience.stanford.edu/marlowe) for more details and to sign up for notifications.
