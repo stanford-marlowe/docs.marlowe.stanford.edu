@@ -83,7 +83,7 @@ Here are some Examples:
 #!/bin/sh
 
 #SBATCH --job-name=test
-#SBATCH -p beta
+#SBATCH -p preempt
 #SBATCH --nodes=1
 #SBATCH -A marlowe-[Project ID]
 #SBATCH -G 8
@@ -91,7 +91,7 @@ Here are some Examples:
 #SBATCH --error=~/foo.err
 
 module load slurm
-module load cudatoolkit
+module load nvhpc
 module load cudnn/cuda12/9.3.0.75
 
 bash ~/test.sh

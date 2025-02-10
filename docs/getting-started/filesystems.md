@@ -17,7 +17,7 @@ Each directory in `/users/` is unique to that user.
 
 `/users/` is backed up once every 24 hours.
 
-{% include important.html content="Your home directory only has 15GB of storage available. For any large files or conda installs, we recommend using a different filesystem." %}
+{% include important.html content="Your home directory only has 32GB of storage available. For any large files or conda installs, we recommend using a different filesystem." %}
 
 
 ## /projects/
@@ -48,3 +48,5 @@ Here is an example:
 Much like in `/projects/`, your `/scratch/` folder corresponds to your project ID. `/scratch/m231631`,`/scratch/m402630`, etc.
 
 `/scratch/` is *not* backed up. Unlike `/users/` and `/projects/`, `/scratch/` is not replicated.
+
+Allocations are given 20TB is `/scratch/` by default.
