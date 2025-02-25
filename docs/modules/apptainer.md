@@ -29,6 +29,10 @@ export APPTAINER_CACHEDIR=/scratch/m223813/apptainercache
 
 After running the above command, all apptainer containers will be pulled to the `apptainercache` folder in your project's scratch directory.
 
+## Using Pre-built Containers from NVIDIA
+
+See the examples [here](/ngc_example).
+
 ## I get "No such file or directory" when trying to load a module
 
 Apptainer is an isolated environment as a rule. This means you will need to bind the directory of whatever module you are using into the apptainer container.
