@@ -39,7 +39,7 @@ export APPTAINER_CACHEDIR=/scratch/<your_space>/.apptainer_cache
 ```
 
 
-## LLama Example
+## Llama Example
 
 1. Pull down the `Llama` image---you can search for it on the NGC website and find a copyable link for the image. Then create an apptainer image (`.sif` file) as below.
 
@@ -194,7 +194,7 @@ Prompt: "ACGT",	Output: "CATACTCGGTATCGGATTCTTTCAGTGCTTCAGCCACCGCATCCCTGACCGTTTC
 One can run something other than the code in the `%runscript` section using the line
 
 ```bash
-apptainer run --nv --bind /scratch/m000xxx evo.sif
+apptainer shell --nv --bind /scratch/m000xxx evo.sif
 ``` 
 
 which will drop one into a shell. Or one can append a command:
