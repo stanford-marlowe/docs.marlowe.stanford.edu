@@ -1,7 +1,7 @@
 ---
 title: "Slurm"
 permalink: /slurm.html
-folder: slurm
+folder: slurm_and_openOnDemand
 layout: default
 toc: true
 customjs: ./assets/js/connect.js
@@ -71,7 +71,6 @@ Here are some Examples:
 </div>
 </div>
 
-
 **SBATCH**:
 
 
@@ -105,3 +104,17 @@ bash ~/test.sh
 </div>
 
 Notice the **-A** in each of the examples. Without it, you will not be able to submit jobs
+
+## Why can't I SSH directly into the compute node I have reserved?
+
+Due to the underlying system architecture of the superpod, you cannot SSH into a compute node directly from a new terminal instance.
+
+You do have an option to reconnect to a running job with the following steps:
+
+Step 1: Allocate your resources with `salloc` as mentioned above
+
+Step 2: Run `srun --jobid=<jobid> --pty bash` in another terminal. It will connect to your allocated resource and you will be able to work out of two terminal sessions now.
+
+In addition to the above commands, you also have the ability to use `tmux` and `screen` on the compute nodes.
+
+**NOTE**: You can only have a maximum of two terminal windows connected to a job at one time. One through `salloc` and one through `srun`. It's currently recommended to allocate resources via `salloc` if you want to use a shell. You cannot connect to an already running job with `salloc`.
