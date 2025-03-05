@@ -118,3 +118,17 @@ Step 2: Run `srun --jobid=<jobid> --pty bash` in another terminal. It will conne
 In addition to the above commands, you also have the ability to use `tmux` and `screen` on the compute nodes.
 
 **NOTE**: You can only have a maximum of two terminal windows connected to a job at one time. One through `salloc` and one through `srun`. It's currently recommended to allocate resources via `salloc` if you want to use a shell. You cannot connect to an already running job with `salloc`.
+
+### I use srun in an sbatch script, how can I connect to my job?
+
+There are two options: Connecting via `sattach` or replacing `srun` with `mpirun`.
+
+The recommended option is to replace `srun` with `mpirun`. For the most part, they are completely interchangeable. After replacing `srun` with `mpirun`, you can follow the previous instructions starting from Step 2.
+
+**Note**: you may need to run `module load openmpi4/gcc/4.1.5`, or add it to your `sbatch` script for `mpirun` to work.
+
+The second option is to use `sattach`. To use `sattach`, you will need to already have started a shell (using `srun --pty bash`) in your job. `sattach` replaces that shell instance entirely.
+
+To connect via `sattach`, run the following: `sattach <jobid>.0`. This will attach to the pre-existing shell.
+
+As `sattach` requires a shell to already exist, it is recommended to move `srun` outside of your `sbatch` script and use `mpirun` instead.
