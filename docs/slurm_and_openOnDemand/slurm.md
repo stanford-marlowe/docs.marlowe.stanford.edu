@@ -133,7 +133,7 @@ To connect via `sattach`, run the following: `sattach <jobid>.0`. This will atta
 
 As `sattach` requires a shell to already exist, it is recommended to move `srun` outside of your `sbatch` script and use `mpirun` instead.
 
-## ## I need more than two terminal instances connected to my job
+## I need more than two terminal instances connected to my job
 
 If you need more than two terminal instances connected (say, via tmux), or you've already used `srun`, you can still connect in a different way via `srun`
 
