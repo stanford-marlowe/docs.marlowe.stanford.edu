@@ -56,7 +56,7 @@ The `gcc/64` module essentially reloads the network fabric libraries and forces 
 
 ### I can't SSH into compute nodes
 
-As of 3/3/25, SSH-ing into compute nodes has been disabled. You can find more information on the [SLURM docs](./slurm_and_openOnDemand/slurm.md).
+As of 3/3/25, SSH-ing into compute nodes has been disabled. You can find more information on other ways to connect on the [SLURM docs](./slurm_and_openOnDemand/slurm.md).
 
 ### I can't connect to a compute node from VSCode
 

@@ -121,7 +121,7 @@ In addition to the above commands, you also have the ability to use `tmux` and `
 
 ### I use srun in an sbatch script, how can I connect to my job?
 
-There are two options: Connecting via `sattach` or replacing `srun` with `mpirun`.
+There are three options (in order of recommendation): Connecting via `sattach` or replacing `srun` with `mpirun`.
 
 The recommended option is to replace `srun` with `mpirun`. For the most part, they are completely interchangeable. After replacing `srun` with `mpirun`, you can follow the previous instructions starting from Step 2.
 
@@ -132,3 +132,16 @@ The second option is to use `sattach`. To use `sattach`, you will need to alread
 To connect via `sattach`, run the following: `sattach <jobid>.0`. This will attach to the pre-existing shell.
 
 As `sattach` requires a shell to already exist, it is recommended to move `srun` outside of your `sbatch` script and use `mpirun` instead.
+
+## ## I need more than two terminal instances connected to my job
+
+If you need more than two terminal instances connected (say, via tmux), or you've already used `srun`, you can still connect in a different way via `srun`
+
+If you add `--overlap` to your `srun` command, you can connect to job with an already running `srun` connection.
+
+As an example:
+
+```
+srun --jobid=5239 --overlap --pty bash
+```
+The above example will connect to your running job in a new terminal instance. Note that exiting from this terminal instance will not cancel your job.
