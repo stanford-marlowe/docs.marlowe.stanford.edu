@@ -218,3 +218,16 @@ A few things to note.
 
 2. Apptainer itself uses a cache and once again, it is best to set a variable as indicated at the top of this document. 
 
+## Evo2 Model
+
+__Update__ As of early March 2025,
+[Evo2](https://github.com/arcinstitute/evo2) has been released. This
+is actually available as a container with NVIDIA NGC and can be
+directly pulled via
+
+```
+apptainer pull docker://nvcr.io/nim/arc/evo2-40b:latest
+```
+
+
+
