@@ -56,6 +56,8 @@
         url: "/faq.html"
       - title: "Tech Specs"
         url: "/specs.html"
+      - title: "Usage Violations"
+        url: "/violations.html"
 
 # You are limited to eight menu items.  If you need more, use dropdowns.
 #
