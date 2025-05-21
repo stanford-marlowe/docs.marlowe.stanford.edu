@@ -105,6 +105,16 @@ bash ~/test.sh
 
 Notice the **-A** in each of the examples. Without it, you will not be able to submit jobs
 
+## Which partition do I submit to?
+
+1) If you have a medium project allocation, you should submit to the batch partition
+
+2) If you have a large project allocation, you should submit to the hero partition
+
+3) For basic access, you can only submit to the preempt partition
+
+**Note**: You will be charged against your GPU hours allocation if you submit to the preempt queue with your medium or large project ID. While this can be useful for running short interactive jobs, it's recommended you use your basic access project id for submitting to the preempt queue.
+
 ## How do I check my GPU hour usage in a given cycle?
 
 If you have a medium or large project, you'll be given a GPU hours allocation. Once you reach that limit, you will be unable to run jobs using that project id.
