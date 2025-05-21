@@ -115,6 +115,16 @@ Notice the **-A** in each of the examples. Without it, you will not be able to s
 
 **Note**: You will be charged against your GPU hours allocation if you submit to the preempt queue with your medium or large project ID. While this can be useful for running short interactive jobs, it's recommended you use your basic access project id for submitting to the preempt queue.
 
+## What are the partition limits?
+
+**Hero**: 25 nodes, 24 hours
+
+**Batch**: 16 nodes, two days
+
+**Preempt**: 8 nodes, 12 hours
+
+**Note**: Any jobs in the `preempt` queue can be preempted within 15 minutes if a job in a higher priority partition (`batch` or `hero`) requests the node that the `preempt` job is running on.
+
 ## How do I check my GPU hour usage in a given cycle?
 
 If you have a medium or large project, you'll be given a GPU hours allocation. Once you reach that limit, you will be unable to run jobs using that project id.
@@ -126,7 +136,3 @@ sreport cluster UserUtilizationByAccount -T gres/gpu Start=<start of billing cyc
 ```
 
 Replace the start date with the first day of your billing cycle and the account with your medium project account.
-
-### My job keeps stopping after 15 minutes.
-
-Any jobs in the `preempt` queue can be preempted within 15 minutes if a job in a higher priority partition (`batch` or `hero`) requests the node that the `preempt` job is running on.
