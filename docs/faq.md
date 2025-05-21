@@ -53,3 +53,7 @@ module load gcc/64
 ```
 
 The `gcc/64` module essentially reloads the network fabric libraries and forces them to be loaded in the correct order. It is recommended to load it after [NVHPC](./modules/nvhpc.md).
+
+### My job keeps stopping after 15 minutes.
+
+Any jobs in the `preempt` queue can be preempted within 15 minutes if a job in a higher priority partition (`batch` or `hero`) requests the node that the `preempt` job is running on.

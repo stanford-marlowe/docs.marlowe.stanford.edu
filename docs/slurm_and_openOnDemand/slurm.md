@@ -126,3 +126,7 @@ sreport cluster UserUtilizationByAccount -T gres/gpu Start=<start of billing cyc
 ```
 
 Replace the start date with the first day of your billing cycle and the account with your medium project account.
+
+### My job keeps stopping after 15 minutes.
+
+Any jobs in the `preempt` queue can be preempted within 15 minutes if a job in a higher priority partition (`batch` or `hero`) requests the node that the `preempt` job is running on.
