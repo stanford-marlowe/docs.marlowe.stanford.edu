@@ -7,7 +7,7 @@ toc: true
 customjs: ./assets/js/connect.js
 ---
 
-Marlowe uses SLURM, a job scheduling system, to run jobs. 
+Marlowe uses SLURM, a job scheduling system, to run jobs. There are three main Account types: Basic/Preempt, Medium/Batch, and Large/Hero.
 
 ## Accounts
 
@@ -62,7 +62,7 @@ Here are some Examples:
 <div class="form-row flex-grow-1">
 <div class="col-auto tip-input replace" id="salloc" markdown="1" >
 
-`salloc -N 1 -A marlowe-[Project ID] -p beta`
+`salloc -N 1 -A marlowe-[Project ID] -p preempt`
 
 </div>
 <div class="col-auto tip-btn">
@@ -105,43 +105,14 @@ bash ~/test.sh
 
 Notice the **-A** in each of the examples. Without it, you will not be able to submit jobs
 
-## Why can't I SSH directly into the compute node I have reserved?
+## How do I check my GPU hour usage in a given cycle?
 
-Due to the underlying system architecture of the superpod, you cannot SSH into a compute node directly from a new terminal instance.
+If you have a medium or large project, you'll be given a GPU hours allocation. Once you reach that limit, you will be unable to run jobs using that project id.
 
-You do have an option to reconnect to a running job with the following steps:
-
-Step 1: Allocate your resources with `salloc` as mentioned above
-
-Step 2: Run `srun --jobid=<jobid> --pty bash` in another terminal. It will connect to your allocated resource and you will be able to work out of two terminal sessions now.
-
-In addition to the above commands, you also have the ability to use `tmux` and `screen` on the compute nodes.
-
-**NOTE**: You can only have a maximum of two terminal windows connected to a job at one time. One through `salloc` and one through `srun`. It's currently recommended to allocate resources via `salloc` if you want to use a shell. You cannot connect to an already running job with `salloc`.
-
-### I use srun in an sbatch script, how can I connect to my job?
-
-There are three options (in order of recommendation): Connecting via `sattach` or replacing `srun` with `mpirun`.
-
-The recommended option is to replace `srun` with `mpirun`. For the most part, they are completely interchangeable. After replacing `srun` with `mpirun`, you can follow the previous instructions starting from Step 2.
-
-**Note**: you may need to run `module load openmpi4/gcc/4.1.5`, or add it to your `sbatch` script for `mpirun` to work.
-
-The second option is to use `sattach`. To use `sattach`, you will need to already have started a shell (using `srun --pty bash`) in your job. `sattach` replaces that shell instance entirely.
-
-To connect via `sattach`, run the following: `sattach <jobid>.0`. This will attach to the pre-existing shell.
-
-As `sattach` requires a shell to already exist, it is recommended to move `srun` outside of your `sbatch` script and use `mpirun` instead.
-
-## I need more than two terminal instances connected to my job
-
-If you need more than two terminal instances connected (say, via tmux), or you've already used `srun`, you can still connect in a different way via `srun`
-
-If you add `--overlap` to your `srun` command, you can connect to job with an already running `srun` connection.
-
-As an example:
+To view your current usage for a set billing cycle, run the following:
 
 ```
-srun --jobid=5239 --overlap --pty bash
+sreport cluster UserUtilizationByAccount -T gres/gpu Start=<start of billing cycle> End=now account=<your medium project account> -t hours
 ```
-The above example will connect to your running job in a new terminal instance. Note that exiting from this terminal instance will not cancel your job.
+
+Replace the start date with the first day of your billing cycle and the account with your medium project account.

@@ -53,13 +53,3 @@ module load gcc/64
 ```
 
 The `gcc/64` module essentially reloads the network fabric libraries and forces them to be loaded in the correct order. It is recommended to load it after [NVHPC](./modules/nvhpc.md).
-
-### I can't SSH into compute nodes
-
-As of 3/3/25, SSH-ing into compute nodes has been disabled. You can find more information on other ways to connect on the [SLURM docs](./slurm_and_openOnDemand/slurm.md).
-
-### I can't connect to a compute node from VSCode
-
-As of 3/3/25, SSH-ing into compute nodes has been disabled. You can find more information on the [SLURM docs](./slurm_and_openOnDemand/slurm.md).
-
-VSCode Server can be deployed separately via [Open OnDemand](./slurm_and_openOnDemand/openondemand.md).
