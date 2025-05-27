@@ -16,4 +16,4 @@ SRC has not established regular office hours for Marlowe, but users can request 
 
 ## Marlowe User Community on Slack. 
 
-Marlowe user and annouce channels are on the Stanford Slack Grid; channels are invite-only until Marlowe is out of Beta.  
+Marlowe user and annouce channels are on the Stanford Slack Grid; channels are currently invite-only.
