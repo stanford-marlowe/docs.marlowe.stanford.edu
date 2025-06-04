@@ -1,32 +1,68 @@
 $(document).ready(function() {
-  generateTips();
+
+  var projectId = "[ProjectID]"
+
+  bindElements();
+
   var savedprojectId = checkSession('projectId');
-  $(document).on('click', '#generateBtn', function() {
-    generateTips();
-  });
-  $(document).on('click', '#clearBtn', function() {
-    var oldProjectIdMatch = checkSession('projectId');
-    saveToSession('projectId', '');
-    autoFillSession('#projectId', '');
-    generateTips(oldProjectIdMatch);
-  });
-
-  $(document).on('click', '.copy,.fa-clipboard', function(e) {
-    generateTips();
-    copyButton(e);
-  });
-
   if (savedprojectId) {
-    autoFillSession('#projectId', savedprojectId);
+    projectId = savedprojectId;
+    autoFillSession('#projectId', projectId);
+    autoFillSession('#projectId2', projectId);
+  }
+
+  generateTips(projectId);
+
+  var startDate = getBackDate();
+  setStartDate(startDate);
+  setEndDate();
+  generateUtilization();
+
+  function bindElements() {
+    $(document).on('click', '.gen-btn', function() {
+      //console.log('generate');
+      generateTips();
+      generateUtilization();
+    });
+
+    $(document).on('click', '.clear-btn', function() {
+      saveToSession('projectId', '');
+      autoFillSession('.project-id', '');
+      projectId = "[ProjectID]"
+      generateTips(projectId);
+      generateUtilization()
+    });
+
+    $(document).on('click', '.copy,.fa-clipboard', function(e) {
+      generateTips();
+      generateUtilization();
+      copyButton(e);
+    });
+
+    $(document).on('click', '.date', function(e) {
+      generateUtilization();
+    });
+
+    $(document).on('blur', '.project-id', function(e) {
+      var changed = e.target.id;
+      syncProjectID(changed)
+      generateUtilization();
+      generateTips();
+    });
+  }
+
+  function syncProjectID(ele) {
+    var newValue = $('#' + ele).val();
+    //console.log('newValue', ele)
+    $('.project-id').val(newValue);
   }
 
   async function copyTextToClipboard(text) {
     try {
       await navigator.clipboard.writeText(text);
-      //console.log('Text copied to clipboard', text);
       notifyCopy();
     } catch (err) {
-      console.error('Failed to copy: ', err);
+      //console.error('Failed to copy: ', err);
     }
   }
 
@@ -34,36 +70,114 @@ $(document).ready(function() {
     return elem.classList.contains(className);
   }
 
-  function generateTips(oldProjectIdMatch) {
-    //set up default values
-    var projectId = $('#projectId').val();
-    var matchText = "[Project ID]"
-    if (!projectId) {
-      projectId = matchText;
-    } else {
+  function generateTips(replacementId) {
+    if (replacementId){
+      projectId = replacementId;
+    }else{
+      projectId = $('#projectId').val();
       saveToSession('projectId', projectId);
+      generateUtilization(projectId);
     }
-    var srun = $('#srun code');
-    var salloc = $('#salloc code');
-    var sbatch = $('#sbatch code');
-    if (oldProjectIdMatch) {
-      matchText = oldProjectIdMatch;
-    }
-    var cleanText = srun.html();
-    const newStr = cleanText.replace(matchText, projectId);
-    srun.html(newStr);
-
     if (projectId) {
-      var cleanText = salloc.html();
-      const newStr = cleanText.replace(matchText, projectId);
-      salloc.html(newStr);
+      generateSrun(projectId);
+      generateSalloc(projectId);
+      generateSbatch(projectId);
     }
+    
+  }
 
-    if (projectId) {
-      var cleanText = sbatch.html();
-      const newStr = cleanText.replace(matchText, projectId);
-      sbatch.html(newStr);
+  function generateSrun(projectId) {
+    var newStr = "srun -N 1 -G 4 -A marlowe-" + projectId + " -p beta --pty bash"
+    replaceText('srun', newStr);
+  }
+
+  function generateSalloc(projectId) {
+    var newStr = "salloc -N 1 -A marlowe-" + projectId + " -p preempt"
+    replaceText('salloc', newStr);
+  }
+
+  function generateSbatch(projectId) {
+    var newStr = "#!/bin/sh \n" +
+      "#SBATCH --job-name=test \n" +
+      "#SBATCH -p preempt \n" +
+      "#SBATCH --nodes=1 \n" +
+      "#SBATCH -A marlowe-" + projectId + "\n" +
+      "#SBATCH -G 8 \n" +
+      "#SBATCH --time=00:30:00 \n" +
+      "#SBATCH --error=~/foo.err \n" +
+      "\n" +
+      "module load slurm \n" +
+      "module load nvhpc \n" +
+      "module load cudnn/cuda12/9.3.0.75 \n" +
+      "\n" +
+      "bash ~/test.sh \n"
+    replaceText('sbatch', newStr);
+  }
+
+  function replaceText(selector, string) {
+    var element = $('#' + selector + ' code');
+    element.html(string);
+  }
+
+  function generateUtilization(projectId) {
+    const utilizationText = $('#utilization code')
+    var mediumId = "[ProjectID Medium]"
+    if (!projectId) {
+      projectId = $('#projectId').val();
     }
+    if (projectId) {
+      mediumId = "marlowe-" + projectId + "-pm01";
+    }
+    var startDate = getStartDate();
+    var endDate = getEndDate();
+
+    var utilScript = "sreport cluster UserUtilizationByAccount -T gres/gpu Start=" + startDate + " End=" + endDate + " account=" + mediumId + " -t hours"
+    utilizationText.html(utilScript);
+
+  }
+
+  function setStartDate(date) {
+    const startDateControl = $('#startDate');
+    startDateControl.val(date);
+  }
+
+  function setEndDate() {
+    const endDateControl = $('#endDate');
+    var today = getToday();
+    endDateControl.val(today);
+  }
+
+  //get today
+  function getToday() {
+    var today = new Date();
+    today = today.toISOString().substring(0, 10);
+    return today;
+  }
+
+  //get a date one month ago
+  function getBackDate() {
+    var d = new Date();
+    var m = d.getMonth();
+    d.setMonth(d.getMonth() - 1);
+    return d.toISOString().substring(0, 10);
+  }
+
+  function getEndDate() {
+    const endDateControl = $('#endDate');
+    var endDate = endDateControl.val();
+    if (!endDate) {
+      endDate = getToday();
+    }
+    return endDate;
+  }
+
+  function getStartDate() {
+    const startDateControl = $('#startDate');
+    var startDate = startDateControl.val();
+    if (!startDate) {
+      startDate = getBackDate();
+    }
+    return startDate;
   }
 
   //gets data-target attribute of button and copies contents of that element
@@ -76,7 +190,6 @@ $(document).ready(function() {
     var textToCopy = $("#" + targetText);
     var text = "";
     text = textToCopy.text();
-    //console.log('text', text);
     copyTextToClipboard(text);
   }
 
@@ -92,14 +205,12 @@ $(document).ready(function() {
   }
 
   function copyBling() {
-    //console.log('copyBling');
     $('.copy.copy-target i').addClass('fa-beat');
     $('.copy.copy-target i').addClass('fa-solid fa-clipboard-check');
     $('.copy.copy-target i').removeClass('fa-regular fa-clipboard');
   }
 
   function copyUnBling() {
-    //console.log('copyUnBling');
     $('.copy.copy-target i').removeClass('fa-beat');
     $('.copy.copy-target i').removeClass('fa-solid fa-clipboard-check');
     $('.copy.copy-target i').addClass('fa-regular fa-clipboard');

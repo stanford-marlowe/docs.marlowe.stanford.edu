@@ -382,7 +382,8 @@ div.fancy-copy.copied {
 }
 
 .btn.generate {
-  margin-top: .2em
+  margin-top: .2em;
+  margin-bottom:.2em;
 }
 
 .btn.copy,
@@ -407,6 +408,11 @@ a.btn {
   color: #fff;
   background-color: #128193;
   border-color: #128193
+}
+
+.btn-outline-info {
+    color: #128193;
+    border-color: #128193;
 }
 
 .alert.note {

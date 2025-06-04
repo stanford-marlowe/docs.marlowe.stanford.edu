@@ -31,11 +31,11 @@ _optional: enter your project ID below and click the Generate button to generate
 <div class="form-row ">
   <div class="col-auto">
     <label class="sr-only" for="projectId">Project ID</label>
-    <input type="text" class="form-control form-control-lg" name="projectId" id="projectId" placeholder="Project ID" />
+    <input type="text" class="form-control form-control-lg project-id" name="projectId" id="projectId" placeholder="Project ID" />
   </div>
   <div class="col-auto">
-    <a class="btn btn-info generate" id="generateBtn" title="Generate Commands"><i class="fa-solid fa-wand-magic-sparkles"></i> Generate!</a>
-    <a class="btn btn-info generate" id="clearBtn" title="Clear">Clear</a>
+<a class="btn btn-info generate gen-btn" id="generateBtn" title="Generate Commands"><i class="fa-solid fa-wand-magic-sparkles"></i> Generate!</a>
+    <a class="btn btn-outline-info generate clear-btn" id="clearBtn" title="Clear">Clear</a>
   </div>
 </div>
 
@@ -131,8 +131,34 @@ If you have a medium or large project, you'll be given a GPU hours allocation. O
 
 To view your current usage for a set billing cycle, run the following:
 
-```
-sreport cluster UserUtilizationByAccount -T gres/gpu Start=<start of billing cycle> End=now account=<your medium project account> -t hours
-```
-
-Replace the start date with the first day of your billing cycle and the account with your medium project account.
+<div class="form-group">
+  <div class="form-row align-items-end">
+    <div class="col-auto my-1">
+      <label for="startDate">Start Date</label>
+      <input type="date" id="startDate" class="form-control date" />
+    </div>
+    <div class="col-auto my-1">
+      <label for="endDate">End Date</label>
+      <input type="date" id="endDate" class="form-control date" />
+    </div>
+    <div class="col-auto my-1">
+      <label for="endDate">Project ID</label>
+      <input type="text" class="form-control project-id" id="projectId2" placeholder="Project ID"/>
+    </div>
+    <div class="col-auto my-1">
+    <a class="btn btn-info generate gen-btn" id="generateBtn2" title="Generate Commands"><i class="fa-solid fa-wand-magic-sparkles"></i> Generate!</a>
+    <a class="btn btn-outline-info generate clear-btn" id="clearBtn2" title="Clear">Clear</a>
+  </div>
+  <div class="col-auto tip-btn my-1">
+    <a class="btn btn-info copy generate" title="Copy to Clipboard" data-target="utilization" data-method="text"><i class="fa-regular fa-clipboard"></i></a>
+  </div>
+  </div>
+  </div>
+  <div id="utilization" markdown="1" class="replace col-auto tip-input ">
+<pre style="white-space: pre-wrap;">
+<code>
+sreport cluster UserUtilizationByAccount -T gres/gpu Start=[start of billing cycle] End=now account=[your medium project account] -t hours
+</code>
+</pre>
+  
+</div>
