@@ -1,13 +1,14 @@
 $(document).ready(function() {
   generateTips();
+  var projectId = "";
   var savedprojectId = checkSession('projectId');
-  $(document).on('click', '#generateBtn', function() {
+  $(document).on('click', '.generate-btn', function() {
     generateTips();
   });
-  $(document).on('click', '#clearBtn', function() {
+  $(document).on('click', '.clear-btn', function() {
     var oldProjectIdMatch = checkSession('projectId');
     saveToSession('projectId', '');
-    autoFillSession('#projectId', '');
+    autoFillSession('.project-id', '');
     generateTips(oldProjectIdMatch);
   });
 
@@ -16,14 +17,23 @@ $(document).ready(function() {
     copyButton(e);
   });
 
+  $(document).on('click', '.date', function(e) {
+    generateUtilization();
+  });
+
   if (savedprojectId) {
     autoFillSession('#projectId', savedprojectId);
+    autoFillSession('#projectId2', savedprojectId);
+    projectId = savedprojectId;
   }
+  var startDate = getBackDate();
+  setStartDate(startDate);
+  setEndDate();
+  generateUtilization();
 
   async function copyTextToClipboard(text) {
     try {
       await navigator.clipboard.writeText(text);
-      //console.log('Text copied to clipboard', text);
       notifyCopy();
     } catch (err) {
       console.error('Failed to copy: ', err);
@@ -43,9 +53,20 @@ $(document).ready(function() {
     } else {
       saveToSession('projectId', projectId);
     }
+    var projectId2 = $('#projectId2').val();
+
+    if (!projectId2) {
+      $('#projectId2').val(projectId);
+    } else {
+      if (!projectId) {
+        $('#projectId').val(projectId2);
+      }
+    }
+
     var srun = $('#srun code');
     var salloc = $('#salloc code');
     var sbatch = $('#sbatch code');
+    var utilization = $('#utilization code');
     if (oldProjectIdMatch) {
       matchText = oldProjectIdMatch;
     }
@@ -64,6 +85,68 @@ $(document).ready(function() {
       const newStr = cleanText.replace(matchText, projectId);
       sbatch.html(newStr);
     }
+    generateUtilization(projectId)
+  }
+
+  function generateUtilization(projectId) {
+    const utilizationText = $('#utilization code')
+    var mediumId = "[ProjectID Medium]"
+    if (!projectId) {
+      projectId = $('#projectId').val();
+    }
+    if (projectId) {
+      mediumId = "marlowe-" + projectId + "-pm01";
+    }
+    var startDate = getStartDate();
+    var endDate = getEndDate();
+
+    var utilScript = "sreport cluster UserUtilizationByAccount -T gres/gpu Start=" + startDate + " End=" + endDate + " account=" + mediumId + " -t hours"
+    utilizationText.html(utilScript);
+
+  }
+
+  function setStartDate(date) {
+    const startDateControl = $('#startDate');
+    startDateControl.val(date);
+  }
+
+  function setEndDate() {
+    const endDateControl = $('#endDate');
+    var today = getToday();
+    endDateControl.val(today);
+  }
+
+  //get today
+  function getToday() {
+    var today = new Date();
+    today = today.toISOString().substring(0, 10);
+    return today;
+  }
+
+  //get a date one month ago
+  function getBackDate() {
+    var d = new Date();
+    var m = d.getMonth();
+    d.setMonth(d.getMonth() - 1);
+    return d.toISOString().substring(0, 10);
+  }
+
+  function getEndDate() {
+    const endDateControl = $('#endDate');
+    var endDate = endDateControl.val();
+    if (!endDate) {
+      endDate = getToday();
+    }
+    return endDate;
+  }
+
+  function getStartDate() {
+    const startDateControl = $('#startDate');
+    var startDate = startDateControl.val();
+    if (!startDate) {
+      startDate = getBackDate();
+    }
+    return startDate;
   }
 
   //gets data-target attribute of button and copies contents of that element
@@ -76,7 +159,6 @@ $(document).ready(function() {
     var textToCopy = $("#" + targetText);
     var text = "";
     text = textToCopy.text();
-    //console.log('text', text);
     copyTextToClipboard(text);
   }
 
@@ -92,14 +174,12 @@ $(document).ready(function() {
   }
 
   function copyBling() {
-    //console.log('copyBling');
     $('.copy.copy-target i').addClass('fa-beat');
     $('.copy.copy-target i').addClass('fa-solid fa-clipboard-check');
     $('.copy.copy-target i').removeClass('fa-regular fa-clipboard');
   }
 
   function copyUnBling() {
-    //console.log('copyUnBling');
     $('.copy.copy-target i').removeClass('fa-beat');
     $('.copy.copy-target i').removeClass('fa-solid fa-clipboard-check');
     $('.copy.copy-target i').addClass('fa-regular fa-clipboard');
