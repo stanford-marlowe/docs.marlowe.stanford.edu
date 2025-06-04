@@ -1,42 +1,68 @@
 $(document).ready(function() {
-  generateTips();
-  var projectId = "";
+
+  var projectId = "[ProjectID]"
+
+  bindElements();
+
   var savedprojectId = checkSession('projectId');
-  $(document).on('click', '.generate-btn', function() {
-    generateTips();
-  });
-  $(document).on('click', '.clear-btn', function() {
-    var oldProjectIdMatch = checkSession('projectId');
-    saveToSession('projectId', '');
-    autoFillSession('.project-id', '');
-    generateTips(oldProjectIdMatch);
-  });
-
-  $(document).on('click', '.copy,.fa-clipboard', function(e) {
-    generateTips();
-    copyButton(e);
-  });
-
-  $(document).on('click', '.date', function(e) {
-    generateUtilization();
-  });
-
   if (savedprojectId) {
-    autoFillSession('#projectId', savedprojectId);
-    autoFillSession('#projectId2', savedprojectId);
     projectId = savedprojectId;
+    autoFillSession('#projectId', projectId);
+    autoFillSession('#projectId2', projectId);
   }
+
+  generateTips(projectId);
+
   var startDate = getBackDate();
   setStartDate(startDate);
   setEndDate();
   generateUtilization();
+
+  function bindElements() {
+    $(document).on('click', '.gen-btn', function() {
+      //console.log('generate');
+      generateTips();
+      generateUtilization();
+    });
+
+    $(document).on('click', '.clear-btn', function() {
+      saveToSession('projectId', '');
+      autoFillSession('.project-id', '');
+      projectId = "[ProjectID]"
+      generateTips(projectId);
+      generateUtilization()
+    });
+
+    $(document).on('click', '.copy,.fa-clipboard', function(e) {
+      generateTips();
+      generateUtilization();
+      copyButton(e);
+    });
+
+    $(document).on('click', '.date', function(e) {
+      generateUtilization();
+    });
+
+    $(document).on('blur', '.project-id', function(e) {
+      var changed = e.target.id;
+      syncProjectID(changed)
+      generateUtilization();
+      generateTips();
+    });
+  }
+
+  function syncProjectID(ele) {
+    var newValue = $('#' + ele).val();
+    //console.log('newValue', ele)
+    $('.project-id').val(newValue);
+  }
 
   async function copyTextToClipboard(text) {
     try {
       await navigator.clipboard.writeText(text);
       notifyCopy();
     } catch (err) {
-      console.error('Failed to copy: ', err);
+      //console.error('Failed to copy: ', err);
     }
   }
 
@@ -44,48 +70,53 @@ $(document).ready(function() {
     return elem.classList.contains(className);
   }
 
-  function generateTips(oldProjectIdMatch) {
-    //set up default values
-    var projectId = $('#projectId').val();
-    var matchText = "[Project ID]"
-    if (!projectId) {
-      projectId = matchText;
-    } else {
+  function generateTips(replacementId) {
+    if (replacementId){
+      projectId = replacementId;
+    }else{
+      projectId = $('#projectId').val();
       saveToSession('projectId', projectId);
+      generateUtilization(projectId);
     }
-    var projectId2 = $('#projectId2').val();
-
-    if (!projectId2) {
-      $('#projectId2').val(projectId);
-    } else {
-      if (!projectId) {
-        $('#projectId').val(projectId2);
-      }
-    }
-
-    var srun = $('#srun code');
-    var salloc = $('#salloc code');
-    var sbatch = $('#sbatch code');
-    var utilization = $('#utilization code');
-    if (oldProjectIdMatch) {
-      matchText = oldProjectIdMatch;
-    }
-    var cleanText = srun.html();
-    const newStr = cleanText.replace(matchText, projectId);
-    srun.html(newStr);
-
     if (projectId) {
-      var cleanText = salloc.html();
-      const newStr = cleanText.replace(matchText, projectId);
-      salloc.html(newStr);
+      generateSrun(projectId);
+      generateSalloc(projectId);
+      generateSbatch(projectId);
     }
+    
+  }
 
-    if (projectId) {
-      var cleanText = sbatch.html();
-      const newStr = cleanText.replace(matchText, projectId);
-      sbatch.html(newStr);
-    }
-    generateUtilization(projectId)
+  function generateSrun(projectId) {
+    var newStr = "srun -N 1 -G 4 -A marlowe-" + projectId + " -p beta --pty bash"
+    replaceText('srun', newStr);
+  }
+
+  function generateSalloc(projectId) {
+    var newStr = "salloc -N 1 -A marlowe-" + projectId + " -p preempt"
+    replaceText('salloc', newStr);
+  }
+
+  function generateSbatch(projectId) {
+    var newStr = "#!/bin/sh \n" +
+      "#SBATCH --job-name=test \n" +
+      "#SBATCH -p preempt \n" +
+      "#SBATCH --nodes=1 \n" +
+      "#SBATCH -A marlowe-" + projectId + "\n" +
+      "#SBATCH -G 8 \n" +
+      "#SBATCH --time=00:30:00 \n" +
+      "#SBATCH --error=~/foo.err \n" +
+      "\n" +
+      "module load slurm \n" +
+      "module load nvhpc \n" +
+      "module load cudnn/cuda12/9.3.0.75 \n" +
+      "\n" +
+      "bash ~/test.sh \n"
+    replaceText('sbatch', newStr);
+  }
+
+  function replaceText(selector, string) {
+    var element = $('#' + selector + ' code');
+    element.html(string);
   }
 
   function generateUtilization(projectId) {

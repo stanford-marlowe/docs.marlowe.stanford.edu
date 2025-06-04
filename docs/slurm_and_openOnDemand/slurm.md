@@ -143,7 +143,7 @@ To view your current usage for a set billing cycle, run the following:
     </div>
     <div class="col-auto my-1">
       <label for="endDate">Project ID</label>
-      <input type="text" class="form-control project-id" id="projectId2" />
+      <input type="text" class="form-control project-id" id="projectId2" placeholder="Project ID"/>
     </div>
     <div class="col-auto my-1">
     <a class="btn btn-info generate gen-btn" id="generateBtn2" title="Generate Commands"><i class="fa-solid fa-wand-magic-sparkles"></i> Generate!</a>
