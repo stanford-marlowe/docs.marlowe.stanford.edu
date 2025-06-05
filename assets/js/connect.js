@@ -4,11 +4,16 @@ $(document).ready(function() {
 
   bindElements();
 
+  //retrieve saved values from session storage
   var savedprojectId = checkSession('projectId');
   if (savedprojectId) {
-    projectId = savedprojectId;
-    autoFillSession('#projectId', projectId);
-    autoFillSession('#projectId2', projectId);
+    autoFillSession('#projectId', savedprojectId);
+    autoFillSession('#projectId2', savedprojectId);
+  }
+  var savedprojectIdSuffix = checkSession('projectIdSuffix');
+  if (savedprojectIdSuffix) {
+    projectIdSuffix = savedprojectIdSuffix;
+    autoFillSession('#projectIdSuffix', savedprojectIdSuffix);
   }
 
   generateTips(projectId);
@@ -17,10 +22,10 @@ $(document).ready(function() {
   setStartDate(startDate);
   setEndDate();
   generateUtilization();
+  //end startup
 
   function bindElements() {
     $(document).on('click', '.gen-btn', function() {
-      //console.log('generate');
       generateTips();
       generateUtilization();
     });
@@ -28,6 +33,8 @@ $(document).ready(function() {
     $(document).on('click', '.clear-btn', function() {
       saveToSession('projectId', '');
       autoFillSession('.project-id', '');
+      saveToSession('projectIdSuffix', '');
+      autoFillSession('#projectIdSuffix', '');
       projectId = "[ProjectID]"
       generateTips(projectId);
       generateUtilization()
