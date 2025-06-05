@@ -125,17 +125,21 @@ Notice the **-A** in each of the examples. Without it, you will not be able to s
 
 **Note**: Any jobs in the `preempt` queue can be preempted within 15 minutes if a job in a higher priority partition (`batch` or `hero`) requests the node that the `preempt` job is running on.
 
-## How do I check my GPU hour usage in a given cycle?
+## How do I check my GPU hour usage?
 
-If you have a medium or large project, you'll be given a GPU hours allocation. Once you reach that limit, you will be unable to run jobs using that project id.
+Medium and large projects are given a GPU hours allocation, tied to a suffix on the main project ID.
 
-To view your current usage for a set billing cycle, run the following:
+The suffix will be something like ***pm***01 for a medium project, or ***pl***01 for a large project. Check your Marlowe welcome email if you need your project's suffix.
+
+Use the form below to generate the sreport command.
+
+To see a medium project's usage, use its ***pm*** suffix. To see a large project's usage, use its ***pl*** suffix.
 
 <div class="form-group">
   <div class="form-row align-items-end">
     <div class="col-auto my-1">
       <label for="startDate">Start Date</label>
-      <input type="date" id="startDate" class="form-control date" />
+      <input type="date" id="startDate" class="form-control date" min="2025-03-01"/>
     </div>
     <div class="col-auto my-1">
       <label for="endDate">End Date</label>
@@ -144,6 +148,10 @@ To view your current usage for a set billing cycle, run the following:
     <div class="col-auto my-1">
       <label for="endDate">Project ID</label>
       <input type="text" class="form-control project-id" id="projectId2" placeholder="Project ID"/>
+    </div>
+    <div class="col-auto my-1">
+      <label for="endDate">Project Suffix</label>
+      <input type="text" class="form-control project-suffix" id="projectIdSuffix" placeholder="ex. pm01" maxlength="4"/>
     </div>
     <div class="col-auto my-1">
     <a class="btn btn-info generate gen-btn" id="generateBtn2" title="Generate Commands"><i class="fa-solid fa-wand-magic-sparkles"></i> Generate!</a>
@@ -157,7 +165,7 @@ To view your current usage for a set billing cycle, run the following:
   <div id="utilization" markdown="1" class="replace col-auto tip-input ">
 <pre style="white-space: pre-wrap;">
 <code>
-sreport cluster UserUtilizationByAccount -T gres/gpu Start=[start of billing cycle] End=now account=[your medium project account] -t hours
+sreport cluster UserUtilizationByAccount -T gres/gpu Start=[start of billing cycle] End=now account=[your project account] -t hours
 </code>
 </pre>
   

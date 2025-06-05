@@ -120,18 +120,22 @@ $(document).ready(function() {
   }
 
   function generateUtilization(projectId) {
-    const utilizationText = $('#utilization code')
-    var mediumId = "[ProjectID Medium]"
+    const utilizationText = $('#utilization code');
+    var projectIdSuffix = $('#projectIdSuffix').val();
+    if (!projectIdSuffix) {
+      projectIdSuffix = "[suffix]"
+    }
+    var reportId = "[ProjectID with suffix]"
     if (!projectId) {
       projectId = $('#projectId').val();
     }
     if (projectId) {
-      mediumId = "marlowe-" + projectId + "-pm01";
+      reportId = "marlowe-" + projectId + "-" + projectIdSuffix;
     }
     var startDate = getStartDate();
     var endDate = getEndDate();
 
-    var utilScript = "sreport cluster UserUtilizationByAccount -T gres/gpu Start=" + startDate + " End=" + endDate + " account=" + mediumId + " -t hours"
+    var utilScript = "sreport cluster UserUtilizationByAccount -T gres/gpu Start=" + startDate + " End=" + endDate + " account=" + reportId + " -t hours"
     utilizationText.html(utilScript);
 
   }
@@ -151,6 +155,7 @@ $(document).ready(function() {
   function getToday() {
     var today = new Date();
     today = today.toISOString().substring(0, 10);
+    document.getElementById("endDate").max = today;
     return today;
   }
 
