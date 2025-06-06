@@ -441,6 +441,12 @@ a {
 margin:4px 1em;
 }
 
+select#projectPartition {
+    padding-right: 16px;
+    background-size: 10px;
+    background-position: right 3px bottom 50%;
+}
+
 .su-local-footer__action-links a.su-link--external:after {
     -webkit-mask: url(../assets/arrow-up-right.svg)no-repeat 0 0;
     mask: url(../assets/arrow-up-right.svg)no-repeat 0 0;
