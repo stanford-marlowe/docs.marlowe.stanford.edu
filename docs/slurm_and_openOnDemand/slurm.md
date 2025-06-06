@@ -84,7 +84,7 @@ _optional: enter your information below and click the Generate button to generat
 #SBATCH -p preempt
 #SBATCH --nodes=1
 #SBATCH -A marlowe-[Project ID]
-#SBATCH -G 8
+#SBATCH -G 1
 #SBATCH --time=00:30:00
 #SBATCH --error=~/foo.err
 
