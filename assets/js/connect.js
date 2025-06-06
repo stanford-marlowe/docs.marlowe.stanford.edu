@@ -152,7 +152,7 @@ $(document).ready(function() {
       "#SBATCH -p " + projectPartition + " \n" +
       "#SBATCH --nodes=1 \n" +
       "#SBATCH -A marlowe-" + projectId + " \n" +
-      "#SBATCH -G 8 \n" +
+      "#SBATCH -G 1 \n" +
       "#SBATCH --time=00:30:00 \n" +
       "#SBATCH --error=~/foo.err \n" +
       "\n" +
