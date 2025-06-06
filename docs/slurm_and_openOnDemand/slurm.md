@@ -9,8 +9,6 @@ customjs: ./assets/js/connect.js
 
 Marlowe uses SLURM, a job scheduling system, to run jobs. There are three main Account types: Basic/Preempt, Medium/Batch, and Large/Hero.
 
-## What are some common Slurm commands to use on Marlowe?
-
 The Slurm commands srun, salloc, and sbatch will take you far!
 
 Marlowe accounts are start with `marlowe-` followed by the project ID. So if your project ID was `m223813`, your account would be `marlowe-m223813`. To use the batch or hero partitions, you will need to add a suffix to your account, like marlowe-m223813-pm01. Read more about it in the [Accounts](#accounts) section below. 
@@ -154,7 +152,7 @@ The suffix will be something like ***pm***01 for a medium project, or ***pl***01
 **Note**: You will be charged against your GPU hours allocation if you submit a job with a medium/large project suffix to the preempt partition. The generator above assumes that you do not want to use your GPU hours allocation for your preempt partition job.
 
 
-## Which partition do I submit to?
+## Available Partitions
 
 1) If you have a medium project allocation, you should submit to the batch partition
 
@@ -163,7 +161,7 @@ The suffix will be something like ***pm***01 for a medium project, or ***pl***01
 3) For basic access, you can only submit to the preempt partition
 
 
-## What are the partition limits?
+## Partition Limits
 
 **Hero**: 25 nodes, 24 hours
 
