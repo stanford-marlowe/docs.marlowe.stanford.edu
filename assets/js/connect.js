@@ -3,7 +3,7 @@ $(document).ready(function() {
   var projectId = "[Project ID]"
   var reportId = "[Project ID with Suffix]"
   var projectIdSuffix = "[Suffix]"
-  var projectPartition = "[partition]"
+  var projectPartition = "[Partition]"
 
   generateUtilization(reportId);
   $('suffixDiv').show();
@@ -21,7 +21,7 @@ $(document).ready(function() {
     autoFillSession('#projectIdSuffix', savedprojectIdSuffix);
   }
   var savedprojectPartition = checkSession('projectPartition');
-  if (savedprojectPartition) {
+  if (savedprojectPartition && savedprojectPartition != "null") {
     projectPartition = savedprojectPartition;
     autoFillSession('#projectPartition', savedprojectPartition);
     hideSuffix(projectPartition);
@@ -45,10 +45,10 @@ $(document).ready(function() {
       autoFillSession('#projectIdSuffix', '');
       saveToSession('projectPartition', '');
       autoFillSession('#projectPartition', '');
-      projectId = "[ProjectID]"
-      reportId = "[ProjectID with suffix]"
-      projectIdSuffix = "[suffix]"
-      projectPartition = "[partition]"
+      projectId = "[Project ID]"
+      reportId = "[Project ID with suffix]"
+      projectIdSuffix = "[Suffix]"
+      projectPartition = "[Partition]"
       generateTips(projectId, projectIdSuffix);
       generateUtilization(reportId)
       hideSuffix()
