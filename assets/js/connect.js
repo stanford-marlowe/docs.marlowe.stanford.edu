@@ -1,6 +1,12 @@
 $(document).ready(function() {
 
-  var projectId = "[ProjectID]"
+  var projectId = "[Project ID]"
+  var reportId = "[Project ID with Suffix]"
+  var projectIdSuffix = "[Suffix]"
+  var projectPartition = "[partition]"
+
+  generateUtilization(reportId);
+  $('suffixDiv').show();
 
   bindElements();
 
@@ -8,26 +14,28 @@ $(document).ready(function() {
   var savedprojectId = checkSession('projectId');
   if (savedprojectId) {
     autoFillSession('#projectId', savedprojectId);
-    autoFillSession('#projectId2', savedprojectId);
   }
   var savedprojectIdSuffix = checkSession('projectIdSuffix');
   if (savedprojectIdSuffix) {
     projectIdSuffix = savedprojectIdSuffix;
     autoFillSession('#projectIdSuffix', savedprojectIdSuffix);
   }
-
-  generateTips(projectId);
+  var savedprojectPartition = checkSession('projectPartition');
+  if (savedprojectPartition) {
+    projectPartition = savedprojectPartition;
+    autoFillSession('#projectPartition', savedprojectPartition);
+    hideSuffix(projectPartition);
+  }
 
   var startDate = getBackDate();
   setStartDate(startDate);
   setEndDate();
-  generateUtilization();
+  generateTips(projectId);
   //end startup
 
   function bindElements() {
     $(document).on('click', '.gen-btn', function() {
       generateTips();
-      generateUtilization();
     });
 
     $(document).on('click', '.clear-btn', function() {
@@ -35,33 +43,45 @@ $(document).ready(function() {
       autoFillSession('.project-id', '');
       saveToSession('projectIdSuffix', '');
       autoFillSession('#projectIdSuffix', '');
+      saveToSession('projectPartition', '');
+      autoFillSession('#projectPartition', '');
       projectId = "[ProjectID]"
-      generateTips(projectId);
-      generateUtilization()
+      reportId = "[ProjectID with suffix]"
+      projectIdSuffix = "[suffix]"
+      projectPartition = "[partition]"
+      generateTips(projectId, projectIdSuffix);
+      generateUtilization(reportId)
+      hideSuffix()
     });
 
     $(document).on('click', '.copy,.fa-clipboard', function(e) {
       generateTips();
-      generateUtilization();
       copyButton(e);
     });
 
     $(document).on('click', '.date', function(e) {
-      generateUtilization();
+      generateTips();
     });
 
-    $(document).on('blur', '.project-id', function(e) {
-      var changed = e.target.id;
-      syncProjectID(changed)
-      generateUtilization();
+    $(document).on('blur', '#projectId, #projectIdSuffix', function(e) {
+      generateTips();
+    });
+    $(document).on('change', '#projectPartition', function(e) {
+      var partition = getPartition();
+      hideSuffix(partition);
       generateTips();
     });
   }
 
-  function syncProjectID(ele) {
-    var newValue = $('#' + ele).val();
-    //console.log('newValue', ele)
-    $('.project-id').val(newValue);
+  function hideSuffix(partition) {
+    if (!partition) {
+      partition = getPartition();
+    }
+    if (partition == 'preempt') {
+      $('#suffixDiv').hide();
+    } else {
+      $('#suffixDiv').show();
+    }
   }
 
   async function copyTextToClipboard(text) {
@@ -73,42 +93,65 @@ $(document).ready(function() {
     }
   }
 
-  function hasClass(elem, className) {
-    return elem.classList.contains(className);
-  }
-
-  function generateTips(replacementId) {
-    if (replacementId){
+  function generateTips(replacementId, replacementSuffixId) {
+    if (replacementId) {
       projectId = replacementId;
-    }else{
+      projectIdSuffix = replacementSuffixId;
+    } else {
       projectId = $('#projectId').val();
       saveToSession('projectId', projectId);
-      generateUtilization(projectId);
+      projectIdSuffix = $('#projectIdSuffix').val();
+      saveToSession('projectIdSuffix', projectIdSuffix);
+      projectPartition = $('#projectPartition').val();
+      saveToSession('projectPartition', projectPartition);
     }
-    if (projectId) {
-      generateSrun(projectId);
-      generateSalloc(projectId);
-      generateSbatch(projectId);
+    reportId = getReportId(projectId, projectIdSuffix, projectPartition);
+
+    if (reportId) {
+      generateSrun(reportId, projectPartition);
+      generateSalloc(reportId, projectPartition);
+      generateSbatch(reportId, projectPartition);
+      generateUtilization(reportId);
     }
-    
+
   }
 
-  function generateSrun(projectId) {
-    var newStr = "srun -N 1 -G 4 -A marlowe-" + projectId + " -p beta --pty bash"
+  function getReportId(projectId, projectIdSuffix, projectPartition) {
+
+    var noSuffix = false;
+    if (projectPartition == "preempt") {
+      noSuffix = true;
+    }
+    if (!projectId) {
+      projectId = "[Project ID]";
+    }
+    if (!projectIdSuffix) {
+      projectIdSuffix = "[Suffix]";
+    }
+    if (noSuffix)
+      reportId = projectId;
+    else {
+      reportId = projectId + "-" + projectIdSuffix;
+    }
+    return reportId;
+  }
+
+  function generateSrun(projectId, projectPartition) {
+    var newStr = "srun -N 1 -G 4 -A marlowe-" + projectId + " -p " + projectPartition + " --pty bash"
     replaceText('srun', newStr);
   }
 
-  function generateSalloc(projectId) {
-    var newStr = "salloc -N 1 -A marlowe-" + projectId + " -p preempt"
+  function generateSalloc(projectId, projectPartition) {
+    var newStr = "salloc -N 1 -A marlowe-" + projectId + " -p " + projectPartition
     replaceText('salloc', newStr);
   }
 
-  function generateSbatch(projectId) {
+  function generateSbatch(projectId, projectPartition) {
     var newStr = "#!/bin/sh \n" +
       "#SBATCH --job-name=test \n" +
-      "#SBATCH -p preempt \n" +
+      "#SBATCH -p " + projectPartition + " \n" +
       "#SBATCH --nodes=1 \n" +
-      "#SBATCH -A marlowe-" + projectId + "\n" +
+      "#SBATCH -A marlowe-" + projectId + " \n" +
       "#SBATCH -G 8 \n" +
       "#SBATCH --time=00:30:00 \n" +
       "#SBATCH --error=~/foo.err \n" +
@@ -126,25 +169,13 @@ $(document).ready(function() {
     element.html(string);
   }
 
-  function generateUtilization(projectId) {
-    const utilizationText = $('#utilization code');
-    var projectIdSuffix = $('#projectIdSuffix').val();
-    if (!projectIdSuffix) {
-      projectIdSuffix = "[suffix]"
-    }
-    var reportId = "[ProjectID with suffix]"
-    if (!projectId) {
-      projectId = $('#projectId').val();
-    }
-    if (projectId) {
-      reportId = "marlowe-" + projectId + "-" + projectIdSuffix;
-    }
+//runs from inside generateTips
+  function generateUtilization(reportId) {
     var startDate = getStartDate();
     var endDate = getEndDate();
 
-    var utilScript = "sreport cluster UserUtilizationByAccount -T gres/gpu Start=" + startDate + " End=" + endDate + " account=" + reportId + " -t hours"
-    utilizationText.html(utilScript);
-
+    var utilScript = "sreport cluster UserUtilizationByAccount -T gres/gpu Start=" + startDate + " End=" + endDate + " account=marlowe-" + reportId + " -t hours";
+    replaceText('utilization', utilScript);
   }
 
   function setStartDate(date) {
@@ -190,6 +221,12 @@ $(document).ready(function() {
       startDate = getBackDate();
     }
     return startDate;
+  }
+
+  function getPartition() {
+    const partitionControl = $('#projectPartition');
+    var partition = partitionControl.val();
+    return partition;
   }
 
   //gets data-target attribute of button and copies contents of that element
