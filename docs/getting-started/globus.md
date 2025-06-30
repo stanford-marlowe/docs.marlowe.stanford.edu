@@ -21,4 +21,4 @@ To get your `/projects/` directory to show up, select the "Marlowe /projects dir
 
 Here's an example:
 
-{% include image.html file="/assets/images/globus.gif" alt = "walkthrough of finding projects directory in globus" %}}
+{% include image.html file="/assets/images/globus.gif" alt = "walkthrough of finding projects directory in globus" %}

@@ -16,6 +16,8 @@
       url: "/getting-started/connecting.html"
     - title: "Filesystems"
       url: "/getting-started/filesystems.html"
+    - title: "Globus"
+      url: "/getting-started/globus.html"
   
 - title: "SLURM and Open OnDemand"
   id: slurm
