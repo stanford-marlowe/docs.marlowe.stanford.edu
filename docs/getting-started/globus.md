@@ -13,6 +13,9 @@ You can transfer data directly through globus to three shares: `/scratch/`, `/pr
 
 All three are selectable as collections in the Globus file manager.
 
+**New to Globus? Check out the official Stanford docs:** [here](https://globus.stanford.edu/)
+
+
 ## I can't see my `/projects/` folder in Globus
 
 Just like in the terminal, `/projects/` is mounted only as needed (an explanation is [here](https://docs.marlowe.stanford.edu/faq.html#i-cant-see-my-project-directory)).
