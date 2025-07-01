@@ -1,5 +1,3 @@
-**Globus transfer nodes have been added to Marlowe!** See more here: https://docs.marlowe.stanford.edu/getting-started/globus.html
-
 # Welcome to Marlowe!
 
 Marlowe is a High Performance Computing (HPC) Cluster managed by Stanford Research Computing.
