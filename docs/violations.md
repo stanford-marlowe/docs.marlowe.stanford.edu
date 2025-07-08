@@ -16,7 +16,7 @@ However, this can be rather ambiguous when it comes to HPC tools. This page prov
 
 - Websocket-based tunnels (such as SSHX)
 - Userspace VPNs (Tailscale, Zerotier, etc.)
-- VSCode Tunnels
+- Web Tunnels (launched with VSCode, Cursor, Windsurf Editor, or other applications)
 
 (SSH tunnels by themself are not a violation as long as they require you to enter both your password and duo 2fa)
 
