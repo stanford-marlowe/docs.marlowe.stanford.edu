@@ -57,3 +57,7 @@ The `gcc/64` module essentially reloads the network fabric libraries and forces 
 ### My job keeps stopping after 15 minutes.
 
 Any jobs in the `preempt` queue can be preempted within 15 minutes if a job in a higher priority partition (`batch` or `hero`) requests the node that the `preempt` job is running on.
+
+### I can't request GPUs using Code-Server through Open OnDemand
+
+Code-Server instances on Marlowe are restricted to 4 CPU cores, 12GB of memory, and 8 hours of runtime. This is to prevent users from sitting on resources without utilizing them. 
