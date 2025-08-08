@@ -20,7 +20,7 @@ However, this can be rather ambiguous when it comes to HPC tools. This page prov
 
 (SSH tunnels by themself are not a violation as long as they require you to enter both your password and duo 2fa)
 
-### Purposefully slowing down login or storage nodes
+### Purposefully slowing down login, storage, or compute nodes
 
 - CPU Benchmarks
 - Storage Benchmarks
