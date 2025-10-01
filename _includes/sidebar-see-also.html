@@ -8,7 +8,7 @@
 {% if item.id == my_folder %}
 {% if item.folderitems %}
 <div class="sidebar-also">
-  <h3>See Also</h3>
+  <h2>See Also</h2>
   <ul class="sidebar-also">
     {% for folderitem in item.folderitems %}
     <li class="{% if folderitem.url==page.url %}active{% endif %}">
