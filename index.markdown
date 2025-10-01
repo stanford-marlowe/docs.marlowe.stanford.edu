@@ -21,3 +21,5 @@ Marlowe, named for Raymond Chandler's beloved fictional detective, is among the 
 
 
 For more in-depth tech specs, refer to the [Tech Specs page](./specs)
+
+**Globus transfer nodes have been added to Marlowe!** See more [here](https://docs.marlowe.stanford.edu/getting-started/globus.html).

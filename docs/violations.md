@@ -16,15 +16,16 @@ However, this can be rather ambiguous when it comes to HPC tools. This page prov
 
 - Websocket-based tunnels (such as SSHX)
 - Userspace VPNs (Tailscale, Zerotier, etc.)
-- VSCode Tunnels
+- Web Tunnels (launched with VSCode, Cursor, Windsurf Editor, or other applications)
 
 (SSH tunnels by themself are not a violation as long as they require you to enter both your password and duo 2fa)
 
-### Purposefully slowing down login or storage nodes
+### Purposefully slowing down login, storage, or compute nodes
 
 - CPU Benchmarks
 - Storage Benchmarks
 - Thrashing Swap Space
+- Running AI Inference tools on the login nodes (Ollama, Vllm, SGLang, etc.)
 
 
 Users found in violation of the Marlowe and/or Stanford Usage Policy may be subject to immediate and permanent removal as well as immediate and permanent removal of their project group. This page is **NOT EXHAUSTIVE** and other applications/services not listed may violate the usage policy. When in doubt, refer to Stanford's [Computer and Network Usage Policy](https://adminguide.stanford.edu/chapters/computing/computer-and-network-usage).
