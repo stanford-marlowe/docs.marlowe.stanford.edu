@@ -120,9 +120,11 @@ pre.highlight {
   display: block
 }
 
-.sidebar h2, .sidebar h3 {
+.sidebar .action-box h2, .sidebar h3 {
   font-size: 1.2em;
-  font-weight: 400
+  font-weight: 400;
+  margin-top: 1.25em;
+  margin-bottom: .75em;
 }
 
 .sidebar ul,
