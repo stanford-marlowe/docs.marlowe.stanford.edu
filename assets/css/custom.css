@@ -120,7 +120,7 @@ pre.highlight {
   display: block
 }
 
-.sidebar h3 {
+.sidebar h2, .sidebar h3 {
   font-size: 1.2em;
   font-weight: 400
 }
