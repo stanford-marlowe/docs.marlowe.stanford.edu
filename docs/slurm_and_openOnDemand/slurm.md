@@ -22,7 +22,7 @@ _optional: enter your information below and click the Generate button to generat
     <input type="text" class="form-control form-control-lg project-id" name="projectId" id="projectId" placeholder="Project ID" />
   </div>
       <div class="col-auto my-1">
-      <label for="partition">Partition</label>
+      <label for="projectPartition">Partition</label>
       <select name="partition" id="projectPartition" class = "form-control form-control-lg">
         <option value="preempt">preempt</option>
         <option value="batch">batch (medium)</option>
