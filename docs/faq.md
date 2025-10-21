@@ -18,6 +18,20 @@ Docker is not supported on Marlowe due to the security risks associated with it.
 
 CUDA tools and libraries such as nvcc are available in the nvhpc module. This module is not loaded by default, so it will need to be loaded whenever you use any CUDA tools and libraries. You can always automate this by adding `module load nvhpc` to your `~/.bashrc` file.
 
+### My job crashes with CUDA_ERROR_MPS_CONNECTION_FAILED
+
+The `CUDA_ERROR_MPS_CONNECTION_FAILED` error can happen during any job that uses CUDA under the hood (PyTorch, JAX, etc.) if a leftover `/tmp/nvidia-mps` directory from another job is present on the node. To prevent this from happening, load the MPS helper module inside your job:
+```
+module load mps
+```
+This automatically defines job-specific `/tmp` directories by setting
+```
+CUDA_MPS_PIPE_DIRECTORY=/tmp/nvidia-mps-$SLURM_JOB_ID
+CUDA_MPS_LOG_DIRECTORY=/tmp/nvidia-log-$SLURM_JOB_ID
+```
+
+The module can be loaded anywhere in the job before your CUDA code runs. A Slurm epilog script will automatically remove any job-specific directories automatically once the job ends.
+
 ### I can't see my project directory
 
 The `/projects/` filesystem uses a system called [autofs](https://www.kernel.org/doc/html/latest/filesystems/autofs.html) to dynamically mount NFS shares in `/projects/`.

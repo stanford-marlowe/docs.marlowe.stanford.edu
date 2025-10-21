@@ -15,3 +15,9 @@ module load nvhpc
 ```
 
 Due to NVPC overwriting the local CC and CXX variables, by default it is not loaded. This means you will have to load the nvhpc module whenever you want to use any CUDA tools.
+
+If your job crashes with `CUDA_ERROR_MPS_CONNECTION_FAILED`, add 
+```
+module load mps
+```
+before running CUDA. See [FAQ entry](/faq.html#my-job-crashes-with-cuda_error_mps_connection_failed) for details.
