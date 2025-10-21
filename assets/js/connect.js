@@ -159,6 +159,7 @@ $(document).ready(function() {
       "module load slurm \n" +
       "module load nvhpc \n" +
       "module load cudnn/cuda12/9.3.0.75 \n" +
+      "module load mps   # Optional: prevents CUDA_ERROR_MPS_CONNECTION_FAILED \n" +
       "\n" +
       "bash ~/test.sh \n"
     replaceText('sbatch', newStr);
