@@ -6,6 +6,11 @@ toc: true
 seealso: true
 ---
 
+### When I try to log in, I get "Connection closed by 171.67.99.202 port 22"`. 
+
+This usually means your account is not yet fully activated. Make sure you received a confirmation mail and if the problem persists beyond that, please post on the `marlowe-researchers` slack channnel.
+
+
 ### I receive a "disk quota exceeded" error when writing files. What does this mean?
 
 Each [filesystem](./getting-started/filesystems.md) on Marlowe has a user space quota. You're most likely to run into this issue when adding files to your home directory.
