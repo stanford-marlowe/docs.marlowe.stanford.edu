@@ -63,6 +63,17 @@ The `gcc/64` module essentially reloads the network fabric libraries and forces 
 
 Any jobs in the `preempt` queue can be preempted within 15 minutes if a job in a higher priority partition (`batch` or `hero`) requests the node that the `preempt` job is running on.
 
+## I've submitted a job and it is still pending. Can I get some idea when it will run?
+
+```bash
+squeue -j <job_id> --start
+```
+will give an upper bound on the requested time by jobs ahead of yours. Even more detail can be seen via:
+
+```bash
+scontrol show jobid=<job_id>
+```
+
 ### I can't request GPUs using Code-Server through Open OnDemand
 
 Code-Server instances on Marlowe are restricted to 4 CPU cores, 12GB of memory, and 8 hours of runtime. This is to prevent users from sitting on resources without utilizing them. 
