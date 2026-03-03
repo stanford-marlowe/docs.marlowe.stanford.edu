@@ -14,7 +14,7 @@ However, this can be rather ambiguous when it comes to HPC tools. This page prov
 
 ### Bypassing login requirements
 
-- Websocket-based tunnels (such as SSHX)
+- Websocket-based tunnels (such as SSHX, Claude Remote Control/Server, etc.)
 - Userspace VPNs (Tailscale, Zerotier, etc.)
 - Web Tunnels (launched with VSCode, Cursor, Windsurf Editor, or other applications)
 
