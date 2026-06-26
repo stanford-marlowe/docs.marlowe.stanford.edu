@@ -16,6 +16,12 @@ To load Cuda Toolkit, run the following:
 module load cudatoolkit
 ```
 
+If your job crashes with `CUDA_ERROR_MPS_CONNECTION_FAILED`, add 
+```
+module load mps
+```
+before running CUDA. See [FAQ entry](/faq.html#my-job-crashes-with-cuda_error_mps_connection_failed) for details.
+
 ### Stock Cuda Toolkit
 
 If you absolutely need a stock cuda toolkit install, you can load the following module:

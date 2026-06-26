@@ -20,3 +20,9 @@ To load CuDNN, run the following:
 ```
 module load cudnn/cuda12
 ```
+
+If your job crashes with `CUDA_ERROR_MPS_CONNECTION_FAILED`, add 
+```
+module load mps
+```
+before running CUDA. See [FAQ entry](/faq.html#my-job-crashes-with-cuda_error_mps_connection_failed) for details.

@@ -91,6 +91,7 @@ _optional: enter your information below and click the Generate button to generat
 module load slurm
 module load nvhpc
 module load cudnn/cuda12/9.3.0.75
+module load mps   # Optional: prevents CUDA_ERROR_MPS_CONNECTION_FAILED
 
 bash ~/test.sh
 ```
@@ -101,6 +102,8 @@ bash ~/test.sh
 </div>
 </div>
 </div>
+
+> **Tip:** If your job crashes with `CUDA_ERROR_MPS_CONNECTION_FAILED`, load `mps` as shown above before launching the job. See the [FAQ entry](/faq.html#my-job-crashes-with-cuda_error_mps_connection_failed) for details.
 
 ## Check GPU allocation usage
 
