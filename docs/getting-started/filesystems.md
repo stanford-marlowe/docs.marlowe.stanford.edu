@@ -49,4 +49,4 @@ Much like in `/projects/`, your `/scratch/` folder corresponds to your project I
 
 `/scratch/` is *not* backed up. Unlike `/users/` and `/projects/`, `/scratch/` is not replicated.
 
-Allocations are given 20TB is `/scratch/` by default.
+Allocations are given 10TB in `/scratch/` by default.
