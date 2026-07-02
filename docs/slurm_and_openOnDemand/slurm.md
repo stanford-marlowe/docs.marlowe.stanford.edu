@@ -157,20 +157,20 @@ The suffix will be something like ***pm***01 for a medium project, or ***pl***01
 
 ## Available Partitions
 
-1) If you have a medium project allocation, you should submit to the batch partition
+1) If you have a medium project allocation (projectId ending with -pm[number], you should submit to the `batch` partition
 
-2) If you have a large project allocation, you should submit to the hero partition
+2) If you have a large project allocation (projectId ending with -pl[number], you should submit to the `hero` partition
 
-3) For basic access, you can only submit to the preempt partition
+3) For basic access, you can only submit to the `preempt` partition
 
 
 ## Partition Limits
 
-**Hero**: 25 nodes, 24 hours
+**Hero**: 31 nodes, 30 days
 
-**Batch**: 16 nodes, two days
+**Batch**: 16 nodes, 2 days
 
-**Preempt**: 8 nodes, 12 hours
+**Preempt**: unlimited nodes, 4 hours
 
 **Note**: Any jobs in the `preempt` queue can be preempted within 15 minutes if a job in a higher priority partition (`batch` or `hero`) requests the node that the `preempt` job is running on.
 
