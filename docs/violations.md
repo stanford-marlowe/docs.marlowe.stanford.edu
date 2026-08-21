@@ -1,31 +1,20 @@
 ---
 title: "Marlowe Usage Violations"
-toc: false
 permalink: violations.html
-seealso: true
-folder: faq
+layout: none
 ---
-
-# Marlowe Usage Policy Violations
-
-Marlowe is an Nvidia Superpod provided by Stanford for use by the Stanford research community. This means that all usage on Marlowe is required to follow Stanford's general [Computer and Network Usage Policy](https://adminguide.stanford.edu/chapters/computing/computer-and-network-usage).
-
-However, this can be rather ambiguous when it comes to HPC tools. This page provides a non-exhaustive list of applications and services that violate Stanford's (and by extension Marlowe's) Usage Policy:
-
-### Bypassing login requirements
-
-- Websocket-based tunnels (such as SSHX, Claude Remote Control/Server, etc.)
-- Userspace VPNs (Tailscale, Zerotier, etc.)
-- Web Tunnels (launched with VSCode, Cursor, Windsurf Editor, or other applications)
-
-(SSH tunnels by themself are not a violation as long as they require you to enter both your password and duo 2fa)
-
-### Purposefully slowing down login, storage, or compute nodes
-
-- CPU Benchmarks
-- Storage Benchmarks
-- Thrashing Swap Space
-- Running AI Inference tools on the login nodes (Ollama, Vllm, SGLang, etc.)
-
-
-Users found in violation of the Marlowe and/or Stanford Usage Policy may be subject to immediate and permanent removal as well as immediate and permanent removal of their project group. This page is **NOT EXHAUSTIVE** and other applications/services not listed may violate the usage policy. When in doubt, refer to Stanford's [Computer and Network Usage Policy](https://adminguide.stanford.edu/chapters/computing/computer-and-network-usage).
+{::nomarkdown}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marlowe Usage Violations has moved | Marlowe User Documentation</title>
+<link rel="canonical" href="https://marlowe-research.stanford.edu/documentation/violations/">
+<meta http-equiv="refresh" content="0; url=https://marlowe-research.stanford.edu/documentation/violations/">
+</head>
+<body>
+<p>This page has moved to <a href="https://marlowe-research.stanford.edu/documentation/violations/">https://marlowe-research.stanford.edu/documentation/violations/</a>.</p>
+</body>
+</html>
+{:/nomarkdown}
