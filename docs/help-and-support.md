@@ -1,19 +1,20 @@
 ---
 title: "Help and Support"
 permalink: /help-and-support.html
-folder: faq
-toc: false
+layout: none
 ---
-
-Stanford Research Computing is here to help you make the most of Marlowe. 
-
-## Support by Email
-Sending an email to our ticketing system is the preferred method to get support for Marlowe. Please specify that you are using Marlowe in the subject and include as many details as possible of your problem.
-
-SRC has not established regular office hours for Marlowe, but users can request an appointment for a Zoom consultation. We are all learning together in this Beta phase, and welcome your feedback.
-
-**Email us at <srcc-support@stanford.edu>**
-
-## Marlowe User Community on Slack. 
-
-Marlowe user and annouce channels are on the Stanford Slack Grid; channels are currently invite-only.
+{::nomarkdown}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Help and Support has moved | Marlowe User Documentation</title>
+<link rel="canonical" href="https://marlowe-research.stanford.edu/documentation/help-and-support/">
+<meta http-equiv="refresh" content="0; url=https://marlowe-research.stanford.edu/documentation/help-and-support/">
+</head>
+<body>
+<p>This page has moved to <a href="https://marlowe-research.stanford.edu/documentation/help-and-support/">https://marlowe-research.stanford.edu/documentation/help-and-support/</a>.</p>
+</body>
+</html>
+{:/nomarkdown}

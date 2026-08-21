@@ -1,21 +1,20 @@
 ---
 title: "Connecting to Marlowe"
-toc: false
 permalink: /getting-started/connecting.html
-folder: getting-started
+layout: none
 ---
-After your project has been approved, connecting is simple!
-
-## SSH
-
-The login server you will need to ssh into is `login.marlowe.stanford.edu`. You will need to ssh in with your SUNet ID.
-
-So, if your SUNet ID was `bob`, your login command would look like:
-
-```
-ssh bob@login.marlowe.stanford.edu
-```
-
-You will be prompted to provide both your password and duo two-factor authentication credentials before it logs you in.
-
-If you receive a message `"Connection closed by 171.67.99.202 port 22" when trying to login, it usually indicates that your account is not fully active yet. A confirmation email is usually sent to inform you of full activation.
+{::nomarkdown}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Connecting to Marlowe has moved | Marlowe User Documentation</title>
+<link rel="canonical" href="https://marlowe-research.stanford.edu/documentation/getting-started/connecting/">
+<meta http-equiv="refresh" content="0; url=https://marlowe-research.stanford.edu/documentation/getting-started/connecting/">
+</head>
+<body>
+<p>This page has moved to <a href="https://marlowe-research.stanford.edu/documentation/getting-started/connecting/">https://marlowe-research.stanford.edu/documentation/getting-started/connecting/</a>.</p>
+</body>
+</html>
+{:/nomarkdown}
