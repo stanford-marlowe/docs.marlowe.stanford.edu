@@ -1,9 +1,20 @@
-# Welcome to Marlowe!
-
-Marlowe is a High Performance Computing (HPC) Cluster managed by Stanford Research Computing.
-
-It composes of an Nvidia DGX H100 Superpod, 2.5PB of DDN ExaScaler Lustre storage, and 3PB of DDN Intelliflash storage.
-
-With 11.1 PFlops of compute power, Marlowe would place 87th in the May 2024 top500 rankings.
-
-For more in-depth tech specs, refer to the [Tech Specs page](./specs.md)
+---
+title: "Welcome to Marlowe"
+permalink: /docs/
+layout: none
+---
+{::nomarkdown}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Welcome to Marlowe has moved | Marlowe User Documentation</title>
+<link rel="canonical" href="https://marlowe-research.stanford.edu/documentation/">
+<meta http-equiv="refresh" content="0; url=https://marlowe-research.stanford.edu/documentation/">
+</head>
+<body>
+<p>This page has moved to <a href="https://marlowe-research.stanford.edu/documentation/">https://marlowe-research.stanford.edu/documentation/</a>.</p>
+</body>
+</html>
+{:/nomarkdown}
